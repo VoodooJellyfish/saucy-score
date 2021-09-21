@@ -10,6 +10,12 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
+    # created_at = db.Column(db.DateTime, nullable=False)
+    # updated_at = db.Column(db.DateTime, nullable=False)
+
+    sauces = db.relationship('Sauce', back_populates='user')
+    reviews = db.relationship('Review', back_populates='user')
+    collections = db.relationship('Collection', back_populates='user')
 
     @property
     def password(self):
