@@ -1,6 +1,7 @@
-import CreateSauceForm from "./SauceForm"
+// import CreateSauceForm from "./SauceForm"
+import CreateSauceFormModal from "./CreateSauceModal"
 
-export default function SauceList({ sauces }) {
+export default function SauceList({ sauces, user }) {
     return (
         <>
             <div className='sauces-container'>
@@ -9,7 +10,7 @@ export default function SauceList({ sauces }) {
                 })}
             </div>
             <div>
-                <CreateSauceForm/>
+                <CreateSauceFormModal/>
             </div>
         </>
     )

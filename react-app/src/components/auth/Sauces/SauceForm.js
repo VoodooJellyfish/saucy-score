@@ -10,8 +10,8 @@ const CreateSauceForm = ({closeModal}) => {
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
     const [imageUrl, setImageUrl] = useState("")
-    const [spiceLevel, setSpiceLevel] = useState()
-    const [rating, setRating] = useState()
+    const [spiceLevel, setSpiceLevel] = useState(1)
+    const [rating, setRating] = useState(1)
 
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
@@ -25,7 +25,7 @@ const CreateSauceForm = ({closeModal}) => {
             errors.push('Hot Sauce must have an Image Url')
         }
         if (!spiceLevel) {
-            errors.push('Post must include a Spice Level')
+            errors.push('Hot Sauce must include a Spice Level')
         }
         if (!rating) {
             errors.push('Hot Sauce Must have a Rating')
@@ -50,7 +50,7 @@ const CreateSauceForm = ({closeModal}) => {
         }
         dispatch(thunk_createNewSauce(payload))
         setErrors([])
-        // closeModal()
+        closeModal()
     }
 
     const updateName = (e) => {
