@@ -36,7 +36,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar />
+      <NavBar authenticated={authenticated} sessionUser={sessionUser} />
       <Switch>
         <Route path='/login' exact={true}>
           <LoginForm />
