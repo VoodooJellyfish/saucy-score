@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Modal } from "../../../context/Modal";
+import { Modal } from "../../context/Modal";
 import CreateSauceForm from "./SauceForm";
 
 // const PostButtonStyle = styled.div`

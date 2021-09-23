@@ -8,7 +8,8 @@ import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
-import SauceList from './components/auth/Sauces';
+import SauceList from './components/Sauces';
+import Sauce from './components/Sauces/SauceDetail';
 import { authenticate } from './store/session';
 import {thunk_getSauces} from './store/sauce'
 
@@ -46,6 +47,9 @@ function App() {
         </Route>
         <Route path='/sauces' exact={true}>
           <SauceList sauces={sauces} />
+        </Route>
+        <Route path='/sauces/:sauceId' exact={true}>
+          <Sauce sauces={sauces}/>
         </Route>
         <Route path='/users' exact={true} >
           <UsersList/>

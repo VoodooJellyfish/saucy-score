@@ -41,11 +41,11 @@ const NavBar = ({ sessionUser, authenticated }) => {
                     </>
                     :
                     <>
-                    {/* <li>
+                    <li>
                         <NavLink to={`/users/${sessionUser.id}`} exact={true} activeClassName='active'>
-                        <img className='nav-url' src={sessionUser?.profile_url}></img>
+                        Profile
                         </NavLink>
-                    </li> */}
+                    </li>
                     <li>
                         <LogoutButton />
                     </li>
