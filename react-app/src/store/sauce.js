@@ -72,7 +72,7 @@ export const thunk_goDeleteSauce = (sauceId) => async (dispatch) => {
 }
 
 export const thunk_editSauce = (payload) => async (dispatch) => {
-    const res = await fetch(`/api/saucess/${payload.id}`, {
+    const res = await fetch(`/api/sauces/${payload.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),

@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Modal } from "../../context/Modal";
 import { thunk_goDeleteSauce, thunk_editSauce } from '../../store/sauce';
+import EditSauceFormModal from './EditSauceModal';
 
 export default function Sauce () {
     const history = useHistory()
@@ -46,6 +47,7 @@ export default function Sauce () {
                 <div>{sauce?.name}</div>
                 <div>{sauce?.description}</div>
             </div>
+            <EditSauceFormModal sauce={sauce}/>
         </div>
     )
 
