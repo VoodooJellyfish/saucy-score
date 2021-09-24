@@ -12,6 +12,7 @@ import SauceList from './components/Sauces';
 import Sauce from './components/Sauces/SauceDetail';
 import { authenticate } from './store/session';
 import {thunk_getSauces} from './store/sauce'
+import { thunk_getReviews } from './store/review';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -25,11 +26,14 @@ function App() {
       setLoaded(true);
     })();
     dispatch(thunk_getSauces())
+    dispatch(thunk_getReviews())
   }, [dispatch]);
 
   const sauceSlice = useSelector(state => state.sauces)
+  const reviewsSlice = useSelector(state => state.reviews)
 
   const sauces = Object.values(sauceSlice)
+  const reviews = Object.values(reviewsSlice)
 
   if (!loaded) {
     return null;
@@ -46,7 +50,7 @@ function App() {
           <SignUpForm />
         </Route>
         <Route path='/sauces' exact={true}>
-          <SauceList sauces={sauces} />
+          <SauceList sauces={sauces} reviews={reviews} />
         </Route>
         <Route path='/sauces/:sauceId' exact={true}>
           <Sauce sauces={sauces}/>

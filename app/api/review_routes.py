@@ -9,7 +9,7 @@ from sqlalchemy import func
 review_routes = Blueprint('reviews', __name__)
 
 
-@review_routes.route('')
+@review_routes.route('/')
 def reviews():
 
     reviews = Review.query.all()
