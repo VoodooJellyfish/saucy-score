@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { thunk_editReview, thunk_goDeleteReview } from '../../store/review';
 
-const EditReviewForm = ({ sauce, review, closeModal }) => {
+const EditReviewForm = ({ sauce, review, closeEditReviewModal }) => {
 
     const user = useSelector(state => state.session.user)
     const userId = user?.id
@@ -62,7 +62,7 @@ const EditReviewForm = ({ sauce, review, closeModal }) => {
         console.log("PAYLOAD:", payload)
         await dispatch(thunk_editReview(payload));
         setErrors([])
-        closeModal()
+        closeEditReviewModal()
         // history.push(`/sauces/${payload?.id}`)
     };
 
@@ -92,10 +92,10 @@ const EditReviewForm = ({ sauce, review, closeModal }) => {
                     <label htmlFor='rating'>Rating: </label>
                     <input className='rating-dropdown' name='rating' type='number' placeholder='Enter rating (1, 5)' value={rating} onChange={updateRating} min='1' max='5' />
                 </div>
-                <button className="formRequestButtons" type='submit'>Submit edit</button>
+                <button className="formRequestButtons" type='submit'>Submit Edit</button>
             </form>
             <form onSubmit={handleDelete}>
-                <button className="formRequestButtons" id="del-comment" type="submit">Delete Sauce</button>
+                <button className="formRequestButtons" id="del-comment" type="submit">Delete Review</button>
             </form>
         </div>
     );
