@@ -13,6 +13,25 @@ const EditSauceForm = ({ sauce, closeModal }) => {
     const dispatch = useDispatch();
     const history = useHistory();
 
+    const errorValidation = () => {
+        let errors = []
+        if (!name) {
+            errors.push('Hot Sauce must have a Name')
+        }
+        if (!imageUrl) {
+            errors.push('Hot Sauce must have an Image Url')
+        }
+        // if (!spiceLevel) {
+        //     errors.push('Hot Sauce must include a Spice Level')
+        // }
+        // if (!rating) {
+        //     errors.push('Hot Sauce Must have a Rating')
+        // }
+        return errors
+    }
+
+
+    const [errors, setErrors] = useState([]);
     const [name, setName] = useState(sauce?.name);
     const [description, setDescription] = useState(sauce?.description);
     const [imageUrl, setImageUrl] = useState(sauce?.image_url);
@@ -24,6 +43,11 @@ const EditSauceForm = ({ sauce, closeModal }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        let validationErrors = errorValidation()
+        if (validationErrors.length > 0) {
+            return setErrors(validationErrors)
+        }
         
         const payload = {
             ...sauce,
@@ -34,6 +58,7 @@ const EditSauceForm = ({ sauce, closeModal }) => {
         };
         console.log("PAYLOAD:", payload)
         await dispatch(thunk_editSauce(payload));
+        setErrors([])
         closeModal()
         // history.push(`/sauces/${payload?.id}`)
     };
@@ -48,6 +73,11 @@ const EditSauceForm = ({ sauce, closeModal }) => {
         <section>
             <div>
                 <form className='form-group' onSubmit={handleSubmit}>
+                    <div>
+                        {errors.map((error, ind) => (
+                            <div key={ind}>{error}</div>
+                        ))}
+                    </div>
                     <div className='form-group'>
                         <label htmlFor='name'>Name: </label>
                         <input

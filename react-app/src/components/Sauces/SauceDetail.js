@@ -4,6 +4,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Modal } from "../../context/Modal";
 import { thunk_goDeleteSauce, thunk_editSauce } from '../../store/sauce';
 import EditSauceFormModal from './EditSauceModal';
+// import SauceReviews from '../Reviews/SauceReviews';
+import Review from '../Reviews/Review';
+import CreateReviewFormModal from '../Reviews/ReviewFormModal';
+import SauceReviews from '../Reviews/SauceReviews';
 
 export default function Sauce () {
     const history = useHistory()
@@ -12,12 +16,18 @@ export default function Sauce () {
 
     const saucesSlice = useSelector(state => state.sauces)
     const sauces = Object.values(saucesSlice)
+    const sessionUser = useSelector(state => state.session.user);
+    const userId = sessionUser?.id
 
     const sauce = sauces?.find(sauce => sauce?.id === +sauceId)
+    const reviews = sauce?.reviews
 
     const session = useSelector(state => state?.session)
     const isLogged = session?.user ? true : false
     const isUser = session?.user ? session?.user.id === sauce?.user_id : false
+
+    const previousReview = reviews?.find(review => review?.user_id === +userId)
+
 
     const [showEditModal, setShowEditModal] = useState(false)
     const [showDeleteModal, setShowDeleteModal] = useState(false)
@@ -40,6 +50,9 @@ export default function Sauce () {
         setShowEditModal(false)
     }
 
+    
+
+
     return (
         <div>
             <img src={sauce?.image_url} alt={sauce?.name}></img>
@@ -48,6 +61,18 @@ export default function Sauce () {
                 <div>{sauce?.description}</div>
             </div>
             <EditSauceFormModal sauce={sauce}/>
+            {!previousReview ?
+                <div> 
+                    <CreateReviewFormModal sauce={sauce}/>
+                </div>
+            : <></> }
+            <div className='sauce-reviews'>
+                {reviews?.map(review =>
+                    <div>
+                        <Review review={review} sauce={sauce} />
+                    </div>
+                )}
+            </div>
         </div>
     )
 

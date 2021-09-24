@@ -100,7 +100,7 @@ const CreateSauceForm = ({closeModal}) => {
                 <label htmlFor='imageUrl'>Image Url: </label>
                 <input className='imageUrl' name='imageUrl' type='textarea' placeholder='Enter Image Url' value={imageUrl} onChange={updateImageUrl}/>
             </div>
-            <button className="formRequestButtons" type='submit'>Create</button>
+            <button className="formRequestButtons" type='submit'>Submit Sauce</button>
         </form>
     )
 }
