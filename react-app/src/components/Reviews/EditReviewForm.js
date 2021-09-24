@@ -63,7 +63,7 @@ const EditReviewForm = ({ sauce, review, closeEditReviewModal }) => {
         await dispatch(thunk_editReview(payload));
         setErrors([])
         closeEditReviewModal()
-        // history.push(`/sauces/${payload?.id}`)
+        history.push(`/sauces/${payload?.sauce_id}`)
     };
 
     const handleDelete = async (e) => {

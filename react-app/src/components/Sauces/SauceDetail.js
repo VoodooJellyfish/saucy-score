@@ -4,10 +4,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Modal } from "../../context/Modal";
 import { thunk_goDeleteSauce, thunk_editSauce } from '../../store/sauce';
 import EditSauceFormModal from './EditSauceModal';
-// import SauceReviews from '../Reviews/SauceReviews';
 import Review from '../Reviews/Review';
 import CreateReviewFormModal from '../Reviews/ReviewFormModal';
-import SauceReviews from '../Reviews/SauceReviews';
+
 
 export default function Sauce () {
     const history = useHistory()

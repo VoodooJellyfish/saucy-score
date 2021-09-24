@@ -10,8 +10,7 @@ const CreateSauceForm = ({closeModal}) => {
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
     const [imageUrl, setImageUrl] = useState("")
-    // const [spiceLevel, setSpiceLevel] = useState(1)
-    // const [rating, setRating] = useState(1)
+
 
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
@@ -24,12 +23,6 @@ const CreateSauceForm = ({closeModal}) => {
         if (!imageUrl) {
             errors.push('Hot Sauce must have an Image Url')
         }
-        // if (!spiceLevel) {
-        //     errors.push('Hot Sauce must include a Spice Level')
-        // }
-        // if (!rating) {
-        //     errors.push('Hot Sauce Must have a Rating')
-        // }
         return errors
     }
     
@@ -43,8 +36,6 @@ const CreateSauceForm = ({closeModal}) => {
             user_id: +sessionUser?.id,
             name: name,
             description: description,
-            // spice_level: +spiceLevel,
-            // rating: +rating,
             image_url: imageUrl
 
         }
@@ -65,13 +56,6 @@ const CreateSauceForm = ({closeModal}) => {
         setImageUrl(e.target.value);
     };
 
-    // const updateSpiceLevel = (e) => {
-    //     setSpiceLevel(e.target.value);
-    // };
-
-    // const updateRating = (e) => {
-    //     setRating(e.target.value);
-    // };
 
     return (
         <form className='create-sauce-form' onSubmit={createSauce}>
@@ -88,14 +72,6 @@ const CreateSauceForm = ({closeModal}) => {
                 <label htmlFor='description'>Description: </label>
                 <textarea className='text-control' name='description' type='textarea' placeholder='Enter optional description' value={description} onChange={updateDescription} />
             </div>
-            {/* <div className='form-group'>
-                <label htmlFor='spiceLevel'>Spice Level: </label>
-                <input className='spice-dropdown' name='spiceLevel' type='number' placeholder='Enter spice level (1, 10)' value={spiceLevel} onChange={updateSpiceLevel} min='1' max='10' />
-            </div>
-            <div className='form-group'>
-                <label htmlFor='rating'>Rating: </label>
-                <input className='rating-dropdown' name='rating' type='number' placeholder='Enter rating (1, 5)' value={rating} onChange={updateRating} min='1' max='5' />
-            </div> */}
             <div className='form-group'>
                 <label htmlFor='imageUrl'>Image Url: </label>
                 <input className='imageUrl' name='imageUrl' type='textarea' placeholder='Enter Image Url' value={imageUrl} onChange={updateImageUrl}/>
