@@ -96,7 +96,7 @@ export const thunk_editSauce = (payload) => async (dispatch) => {
 //     }
 // };
 
-const initialState = {userSauces : {}}
+const initialState = {}
 
 const sauceReducer = (state = initialState, action) => {
     switch (action.type) {

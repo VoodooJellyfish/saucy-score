@@ -11,7 +11,7 @@ const DemoButton = () => {
     let demoLogin = () => { return dispatch(login(email, password)) }
 
     return (
-        <button onClick={demoLogin} className="styled-button">Demo</button >
+        <button onClick={demoLogin} id="demo-button">Demo</button >
     )
 }
 
