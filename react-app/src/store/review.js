@@ -1,24 +1,13 @@
 const LOAD_REVIEWS= "posts/LOAD_REVIEWS"
 const UPDATE_REVIEW = 'users/UPDATE_REVIEW'
 const DELETE_REVIEW = 'posts/DELETE_REVIEW'
-const USER_REVIEWS = 'posts/USER_REVIEWS'
-const UPDATE_USER = 'post/UPDATE_USER'
+// const USER_REVIEWS = 'posts/USER_REVIEWS'
+// const UPDATE_USER = 'post/UPDATE_USER'
 
 const loadReviews = (reviews) => ({
     type: LOAD_REVIEWS,
     reviews
 });
-
-// const userSauces = (sauce) => ({
-//     type: USER_SAUCES,
-//     sauce
-// })
-
-// const updateUser = (sauce) => ({
-//     type: UPDATE_USER,
-//     sauce
-// })
-
 
 const updateReview = (review) => ({
     type: UPDATE_REVIEW,
@@ -95,7 +84,7 @@ export const thunk_editReview = (payload) => async (dispatch) => {
 //     }
 // };
 
-const initialState = {userReviews : {}}
+const initialState = {}
 
 const reviewReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -117,17 +106,6 @@ const reviewReducer = (state = initialState, action) => {
                 [action.review.id]: action.review
             }
         }
-        // case USER_SAUCE :{
-
-        //     let userState = {...state}
-        //     userState.userPosts = {...action.post}
-        //     return {...userState}
-        // }
-        // case UPDATE_USER: {
-        //     let userUpdateState = {...state}
-        //     userUpdateState.userPosts = {...userUpdateState.userPosts, [action.post.id]: action.post}
-        //     return {...userUpdateState}
-        // }
         default:
             return state
     }

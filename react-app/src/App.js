@@ -10,6 +10,7 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import SauceList from './components/Sauces';
 import Sauce from './components/Sauces/SauceDetail';
+import Home from './components/Home';
 import { authenticate } from './store/session';
 import {thunk_getSauces} from './store/sauce'
 import { thunk_getReviews } from './store/review';
@@ -61,8 +62,8 @@ function App() {
         <Route path='/users/:userId' exact={true} >
           <User />
         </Route>
-        <Route path='/' exact={true} >
-          <h1>My Home Page</h1>
+      <Route path='/' exact={true} >
+          <Home sessionUser={sessionUser} authenticated={authenticated} />
         </Route>
       </Switch>
     </BrowserRouter>
