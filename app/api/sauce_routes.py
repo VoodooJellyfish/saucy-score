@@ -68,3 +68,13 @@ def delete_sauce(sauce_id):
         db.session.commit()
         return {"Success": "sauce deleted"}
     return {"Error": "sauce not found"}
+
+
+# route to get all the reviewsfor a sauce
+@sauce_routes.route('/<int:sauce_id>/reviews')
+# @login_required
+def get_sauce_reviews(sauce_id):
+    reviews = Review.query.filter(Review.sauce_id == sauce_id)
+    if reviews:
+        return {review.id: review.to_dict() for review in reviews}
+    return "No Comments"

@@ -1,10 +1,13 @@
 import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import EditReviewFormModal from './EditReviewModal';
 import { DeleteReviewButton } from './DeleteReview';
+import { thunk_getReview } from '../../store/review';
 
 export default function Review({sauce, review}) {
-
+    const dispatch=useDispatch()
     const user = useSelector(state => state.session.user)
     const userId = user?.id
 
@@ -13,6 +16,9 @@ export default function Review({sauce, review}) {
             return true
         }
     }
+    useEffect(() => {
+        dispatch(thunk_getReview(review?.id));
+    }, [review, dispatch]);
 
     return (
         <>

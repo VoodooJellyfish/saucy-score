@@ -26,6 +26,22 @@ export const thunk_getReviews = () => async (dispatch) => {
         dispatch((loadReviews(reviews)))
     }
 };
+
+export const thunk_getReview = (reviewId) => async (dispatch) => {
+    const res = await fetch(`/api/reviews/${reviewId}`);
+    if (res.ok) {
+        const review= await res.json();
+        dispatch((loadReviews(review)))
+    }
+};
+
+export const thunk_getSauceReviews = (sauceId) => async (dispatch) => {
+    const res = await fetch(`/api/sauces/${sauceId}/reviews`);
+    if (res.ok) {
+        const reviews = await res.json();
+        dispatch((loadReviews(reviews)))
+    }
+};
 // export const getUserSauces = (userId) => async (dispatch) => {
 //     const res = await fetch(`/api/posts/user/${userId}`)
 

@@ -6,6 +6,7 @@ import { thunk_goDeleteSauce, thunk_editSauce } from '../../store/sauce';
 import EditSauceFormModal from './EditSauceModal';
 import Review from '../Reviews/Review';
 import CreateReviewFormModal from '../Reviews/ReviewFormModal';
+import SauceReviews from '../Reviews/SauceReviews';
 
 
 export default function Sauce () {
@@ -66,11 +67,12 @@ export default function Sauce () {
                 </div>
             : <></> }
             <div className='sauce-reviews'>
-                {reviews?.map(review =>
+                {/* {reviews?.map(review =>
                     <div>
                         <Review review={review} sauce={sauce} />
                     </div>
-                )}
+                )} */}
+                <SauceReviews sauce={sauce}/>
             </div>
         </div>
     )

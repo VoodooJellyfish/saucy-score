@@ -1,12 +1,22 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
 import Review from './Review';
+import { thunk_getReviews } from '../../store/review';
+import { thunk_getSauceReviews } from '../../store/review';
 // import EditReviewFormModal from './EditReviewModal';
 
 export default function SauceReviews({sauce}) {
+    const dispatch = useDispatch()
     const reviewsSlice = useSelector(state => state.reviews)
     const reviews = Object.values(reviewsSlice)
 
     const sauceReviews = reviews?.filter((review) => review?.sauce_id === sauce?.id)
+
+    useEffect(() => {
+
+        return dispatch(thunk_getSauceReviews(sauce?.id))
+
+    },[sauce, dispatch])
 
     return (
         <>
