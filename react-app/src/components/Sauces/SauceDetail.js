@@ -7,6 +7,7 @@ import EditSauceFormModal from './EditSauceModal';
 import Review from '../Reviews/Review';
 import CreateReviewFormModal from '../Reviews/ReviewFormModal';
 import SauceReviews from '../Reviews/SauceReviews';
+import { thunk_getSauceReviews } from '../../store/review';
 
 
 export default function Sauce () {
@@ -31,6 +32,8 @@ export default function Sauce () {
 
     const [showEditModal, setShowEditModal] = useState(false)
     const [showDeleteModal, setShowDeleteModal] = useState(false)
+    // const [previousReview, setPreviousReview] = useState(false)
+
 
     const deleteFunc = () => {
         dispatch(thunk_goDeleteSauce(sauceId));
@@ -49,6 +52,12 @@ export default function Sauce () {
     const closeEditModal = () => {
         setShowEditModal(false)
     }
+
+    useEffect(() => {
+
+        return dispatch(thunk_getSauceReviews(sauce?.id))
+
+    },[sauce, dispatch])
 
     
 

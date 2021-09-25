@@ -23,7 +23,7 @@ export default function SauceReviews({sauce}) {
             <div className='reviews-container'>
                 {sauceReviews.map(review => {
                     return(
-                        <div>
+                        <div key={review?.id}>
                             <Review review={review} sauce={sauce}/>
                         </div>
                         // <Link to={`reviews/${review?.id}`}>
