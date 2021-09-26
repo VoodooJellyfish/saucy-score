@@ -51,7 +51,7 @@ function App() {
           <SignUpForm />
         </Route>
         <Route path='/sauces' exact={true}>
-          <SauceList sauces={sauces} reviews={reviews} />
+          <SauceList sauces={sauces} reviews={reviews} authenticated={authenticated}/>
         </Route>
         <Route path='/sauces/:sauceId' exact={true}>
           <Sauce sauces={sauces}/>

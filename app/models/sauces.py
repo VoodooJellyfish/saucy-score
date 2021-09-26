@@ -31,5 +31,6 @@ class Sauce(db.Model):
             "image_url": self.image_url,
             "created_at": f'{self.created_at.date()}',
             "updated_at": self.updated_at,
-            "reviews": [review.to_dict() for review in self.reviews]
+            "reviews": [review.to_dict() for review in self.reviews],
+            "username":  self.user.username
         }

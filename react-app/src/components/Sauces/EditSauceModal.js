@@ -2,7 +2,7 @@ import { Modal } from "../../context/Modal";
 import EditSauceForm from "./EditSauceForm";
 import React, { useState } from "react";
 
-export default function EditSauceFormModal({sauce}) {
+export default function EditSauceFormModal({sauce, isSauceOwner}) {
     const [showModal, setShowModal] = useState(false)
 
     const handleClick = () => {
@@ -14,12 +14,16 @@ export default function EditSauceFormModal({sauce}) {
     }
 
     return (
+
         <>
-            <button className="formRequestButtons" onClick={handleClick}> Edit Sauce
-            </button>
-            {showModal && <Modal onClose={() => setShowModal(false)}>
-                <EditSauceForm closeModal={closeModal} sauce={sauce} />
-            </Modal>}
+        {isSauceOwner ?
+            <div>
+                <button className="formRequestButtons" onClick={handleClick}> Edit Sauce
+                </button>
+                {showModal && <Modal onClose={() => setShowModal(false)}>
+                    <EditSauceForm closeModal={closeModal} sauce={sauce} />
+                </Modal>}
+            </div> : <> </>}
         </>
     )
 
