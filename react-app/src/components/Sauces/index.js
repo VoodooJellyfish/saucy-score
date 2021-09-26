@@ -22,7 +22,7 @@ export default function SauceList({ sauces }) {
             <div className='sauces-container'>
                 {sauces.map(sauce => {
                     return(
-                        <div className="sauce-card">
+                        <div key={sauce?.id} className="sauce-card">
                             <div className="image-container">
                                 <Link className="img-link" to={`sauces/${sauce?.id}`}>
                                     <img className="sauce-img" src={sauce?.image_url} alt={sauce?.name}></img>

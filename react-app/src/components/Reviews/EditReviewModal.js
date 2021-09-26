@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { Modal } from "../../context/Modal";
 import EditReviewForm from "./EditReviewForm";
+import { useEffect } from "react";
 
 // const PostButtonStyle = styled.div`
 // .styled-button{
@@ -23,7 +24,7 @@ import EditReviewForm from "./EditReviewForm";
 
 // `
 
-export default function EditReviewFormModal({sauce, review}) {
+export default function EditReviewFormModal({sauce, review, ownsReview}) {
     const [showEditReviewModal, setShowEditReviewModal] = useState(false)
 
     const handleClick = () => {
@@ -33,15 +34,21 @@ export default function EditReviewFormModal({sauce, review}) {
     const closeEditReviewModal = () => {
         setShowEditReviewModal(false)
     }
+    useEffect (() => {
+
+    }, [ownsReview])
 
 
     return (
         <>
-            <button className="formRequestButtons" onClick={handleClick}>Edit Review
-            </button>
-            {showEditReviewModal && <Modal onClose={() => setShowEditReviewModal(false)}>
-                <EditReviewForm closeEditReviewModal={closeEditReviewModal} sauce={sauce} review={review} />
-            </Modal>}
+        {ownsReview ?
+            <>
+                <button className="formRequestButtons" onClick={handleClick}>Edit Review
+                </button>
+                {showEditReviewModal && <Modal onClose={() => setShowEditReviewModal(false)}>
+                    <EditReviewForm closeEditReviewModal={closeEditReviewModal} sauce={sauce} review={review} />
+                </Modal>}
+            </> : <> </>}
         </>
     )
 }

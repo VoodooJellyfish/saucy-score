@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Modal } from "../../context/Modal";
 import CreateReviewForm from "./ReviewForm";
@@ -23,7 +23,7 @@ import CreateReviewForm from "./ReviewForm";
 
 // `
 
-export default function CreateReviewFormModal({sauce}) {
+export default function CreateReviewFormModal({sauce, hasReviewed}) {
     const [showModal, setShowModal] = useState(false)
 
     const handleClick = () => {
@@ -34,14 +34,21 @@ export default function CreateReviewFormModal({sauce}) {
         setShowModal(false)
     }
 
+    useEffect(() => {
+
+    },[hasReviewed])
+
 
     return (
         <>
-            <button className="formRequestButtons" onClick={handleClick}>Create Review
-            </button>
-            {showModal && <Modal onClose={() => setShowModal(false)}>
-                <CreateReviewForm closeModal={closeModal} sauce={sauce} />
-            </Modal>}
+        {!hasReviewed ?
+            <>
+                <button className="formRequestButtons" onClick={handleClick}>Create Review
+                </button>
+                {showModal && <Modal onClose={() => setShowModal(false)}>
+                    <CreateReviewForm closeModal={closeModal} sauce={sauce} />
+                </Modal>}
+            </> : <> </>}
         </>
     )
 }
