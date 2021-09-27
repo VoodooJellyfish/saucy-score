@@ -23,7 +23,7 @@ import CreateReviewForm from "./ReviewForm";
 
 // `
 
-export default function CreateReviewFormModal({sauce, hasReviewed}) {
+export default function CreateReviewFormModal({sauce, hasReviewed, setHasReviewed}) {
     const [showModal, setShowModal] = useState(false)
 
     const handleClick = () => {
@@ -46,7 +46,7 @@ export default function CreateReviewFormModal({sauce, hasReviewed}) {
                 <button className="formRequestButtons" onClick={handleClick}>Create Review
                 </button>
                 {showModal && <Modal onClose={() => setShowModal(false)}>
-                    <CreateReviewForm closeModal={closeModal} sauce={sauce} />
+                    <CreateReviewForm closeModal={closeModal} sauce={sauce} hasReviewed={hasReviewed} setHasReviewed={setHasReviewed} />
                 </Modal>}
             </> : <> </>}
         </>

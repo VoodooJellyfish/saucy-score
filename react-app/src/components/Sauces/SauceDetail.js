@@ -23,6 +23,8 @@ export default function Sauce () {
     const userId = sessionUser?.id
     const authenticated = sessionUser !== null
 
+    const [hasReviewed, setHasReviewed] = useState(false)
+
     const sauce = sauces?.find(sauce => sauce?.id === +sauceId)
     const reviews = sauce?.reviews
 
@@ -32,7 +34,7 @@ export default function Sauce () {
     const isLogged = session?.user ? true : false
     const isUser = session?.user ? session?.user.id === sauce?.user_id : false
     const isSauceOwner = userId === sauce?.user_id ? true : false
-    const hasReviewed = previousReview ? true : false
+    // const hasReviewed = previousReview ? true : false
 
     console.log("TERNARY STUFF" , "Logged in :", isLogged, "isUser: ", isUser,
     "isOwner:", isSauceOwner, "has Reviewed:", hasReviewed)
@@ -64,14 +66,17 @@ export default function Sauce () {
                     <div id="detail-username">
                         Submitted By: {sauce?.username} on {sauce?.created_at}
                     </div>
+                    <div>
+                        <EditSauceFormModal sauce={sauce} isSauceOwner={isSauceOwner}/>
+                    </div>
                 </div>
-                <EditSauceFormModal sauce={sauce} isSauceOwner={isSauceOwner}/>
+                
             </div>
             <div className='sauce-reviews'>
                 <div> 
-                    <CreateReviewFormModal sauce={sauce} hasReviewed={hasReviewed}/>
+                    <CreateReviewFormModal sauce={sauce} hasReviewed={hasReviewed} setHasReviewed={setHasReviewed}/>
                 </div>
-                <SauceReviews sauce={sauce} hasReviewed={hasReviewed}/>
+                <SauceReviews sauce={sauce} hasReviewed={hasReviewed} setHasReviewed={setHasReviewed}/>
             </div>
         </div>
     )

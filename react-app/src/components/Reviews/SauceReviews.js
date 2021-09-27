@@ -5,7 +5,7 @@ import { thunk_getReviews } from '../../store/review';
 import { thunk_getSauceReviews } from '../../store/review';
 // import EditReviewFormModal from './EditReviewModal';
 
-export default function SauceReviews({sauce, hasReviewed}) {
+export default function SauceReviews({sauce, hasReviewed, setHasReviewed}) {
     const dispatch = useDispatch()
     const reviewsSlice = useSelector(state => state.reviews)
     const reviews = Object.values(reviewsSlice)
@@ -24,7 +24,7 @@ export default function SauceReviews({sauce, hasReviewed}) {
                 {sauceReviews.map(review => {
                     return(
                         <div key={review?.id}>
-                            <Review review={review} sauce={sauce} hasReviewed={hasReviewed}/>
+                            <Review review={review} sauce={sauce} hasReviewed={hasReviewed} setHasReviewed={setHasReviewed}/>
                         </div>
                         // <Link to={`reviews/${review?.id}`}>
                         //     <img key={review.id} src={review.image_url} alt={review.name}></img>

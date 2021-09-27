@@ -32,4 +32,5 @@ class Review(db.Model):
             "created_at": f'{self.created_at.date()}',
             "updated_at": self.updated_at,
             "sauce_id": self.sauce_id,
+            "username": self.user.username
         }

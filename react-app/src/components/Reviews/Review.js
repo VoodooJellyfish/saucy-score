@@ -5,8 +5,9 @@ import { useDispatch } from 'react-redux';
 import EditReviewFormModal from './EditReviewModal';
 import { DeleteReviewButton } from './DeleteReview';
 import { thunk_getReview } from '../../store/review';
+import "./Review.css"
 
-export default function Review({sauce, review}) {
+export default function Review({sauce, review, hasReviewed, setHasReviewed}) {
     const dispatch=useDispatch()
     const user = useSelector(state => state.session.user)
     const userId = user?.id
@@ -27,15 +28,17 @@ export default function Review({sauce, review}) {
     return (
         <>
             <div key={review?.id} className="reviewContainer">
-                <div id="picNamePost">
-                    <Link to={`/users/${review?.user_id}`}><button id="usernamePrev">{review?.user_id}</button></Link>
-                    <span id="datePrev">{review?.updated_at}</span>
+                <div id="user-container">
+                    <Link to={`/users/${review?.user_id}`}>
+                        {review?.username}
+                    </Link>
+                    <div id="datePrev">{review?.updated_at}</div>
                 <div>
                     <EditReviewFormModal review={review} sauce={sauce} ownsReview={ownsReview}/>
-                    <DeleteReviewButton review={review} ownsReview={ownsReview}/>
+                    <DeleteReviewButton review={review} ownsReview={ownsReview} setHasReviewed={setHasReviewed}/>
                 </div>
                 </div>
-                <span id="commentContent">{review.body}</span>
+                <div id="commentContent">{review.body}</div>
             </div>
         </>
     )

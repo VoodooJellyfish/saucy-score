@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router';
 import { thunk_createNewReview } from '../../store/review';
 
-const CreateReviewForm = ({sauce, closeModal}) => {
+const CreateReviewForm = ({sauce, closeModal, hasReviewed, setHasReviewed}) => {
 
     const [errors, setErrors] = useState([]);
     const [body, setBody] = useState("");
@@ -43,6 +43,7 @@ const CreateReviewForm = ({sauce, closeModal}) => {
             sauce_id: +sauce?.id
         }
         dispatch(thunk_createNewReview(payload))
+        setHasReviewed(!hasReviewed)
         setErrors([])
         closeModal()
     }
