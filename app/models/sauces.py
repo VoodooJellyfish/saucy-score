@@ -33,4 +33,5 @@ class Sauce(db.Model):
             "updated_at": self.updated_at,
             "reviews": [review.to_dict() for review in self.reviews],
             "username":  self.user.username
+
         }

@@ -10,6 +10,31 @@ import SauceReviews from '../Reviews/SauceReviews';
 import { thunk_getSauceReviews } from '../../store/review';
 import "./Sauce.css"
 
+export function findScore (reviews) {
+        let num_of_reviews = reviews?.length
+        let sum_of_score = 0
+
+        for (let i=0; i < reviews?.length; i++) {
+            let review = reviews[i]
+            let score = +review?.rating
+            sum_of_score += score
+        }
+        return (sum_of_score/num_of_reviews)
+    }
+
+    
+    export function findSpice (reviews) {
+        let num_of_reviews = reviews?.length
+        let sum_of_score = 0
+
+        for (let i=0; i < reviews?.length; i++) {
+            let review = reviews[i]
+            let score = +review?.spice_level
+            sum_of_score += score
+        }
+        return (sum_of_score/num_of_reviews)
+    }
+
 
 export default function Sauce () {
     const history = useHistory()
@@ -22,25 +47,32 @@ export default function Sauce () {
     const session = useSelector(state => state?.session)
     const userId = sessionUser?.id
     const authenticated = sessionUser !== null
-
     const sauce = sauces?.find(sauce => sauce?.id === +sauceId)
     const reviews = sauce?.reviews
 
-    const previousReview = reviews?.find(review => review?.user_id === +userId)
-    console.log("previous Review", previousReview)
+    const previousReview = reviews?.find( review => review?.user_id === userId)
 
-    const isLogged = session?.user ? true : false
-    const isUser = session?.user ? session?.user.id === sauce?.user_id : false
+    const isReview = previousReview ? true:false
+    console.log("PREVIOUSREVIEW", previousReview)
+
+    const [hasReviewed, setHasReviewed] = useState(isReview)
+    const [score, setScore] = useState(0)
+    const [spice, setSpice] = useState(0)
+
+    
+
+
+
     const isSauceOwner = userId === sauce?.user_id ? true : false
-    const hasReviewed = previousReview ? true : false
 
-    console.log("TERNARY STUFF" , "Logged in :", isLogged, "isUser: ", isUser,
-    "isOwner:", isSauceOwner, "has Reviewed:", hasReviewed)
+
 
 
     useEffect (() => {
-
-    }, [authenticated, hasReviewed])
+        setScore(findScore(reviews))
+        setSpice(findSpice(reviews))
+        setHasReviewed(isReview)
+    }, [reviews, isReview])
 
 
     useEffect(() => {
@@ -48,6 +80,23 @@ export default function Sauce () {
         return dispatch(thunk_getSauceReviews(sauce?.id))
 
     },[sauce, dispatch])
+
+
+
+    console.log("SCORE", findScore(reviews))
+    console.log("SPICE", findSpice(reviews))
+
+    
+    let scoreArr = []
+    for(let i=0; i < findScore(reviews); i++) {
+        scoreArr.push('fas fa-star')
+    }
+
+    let spiceArr = []
+    for(let i=0; i < findSpice(reviews); i++) {
+        spiceArr.push('fas fa-pepper-hot')
+    }
+    
 
     
 
@@ -59,19 +108,36 @@ export default function Sauce () {
                     <img className= "detail-image" src={sauce?.image_url} alt={sauce?.name}></img>
                 </div>
                 <div className='text-container'>
-                    <div>{sauce?.name}</div>
-                    <div>{sauce?.description}</div>
+                    <div id="sauce-name">{sauce?.name}</div>
+                    <div id="icon-holder">
+                        <div>
+                            {scoreArr.map((el, i) => {
+                            return <span key={i}><i class={el}></i></span>
+                            })}
+                        </div>
+                        <div></div>
+                        <div>
+                            {spiceArr.map((el, i) => {
+                            return <span key={i}><i class={el}></i></span>
+                            })}
+                        </div>
+                    </div>
+                    <div id="description">{sauce?.description}</div>
                     <div id="detail-username">
                         Submitted By: {sauce?.username} on {sauce?.created_at}
                     </div>
+                    <div>
+                        <EditSauceFormModal sauce={sauce} isSauceOwner={isSauceOwner}/>
+                    </div>
                 </div>
-                <EditSauceFormModal sauce={sauce} isSauceOwner={isSauceOwner}/>
+                
             </div>
             <div className='sauce-reviews'>
                 <div> 
-                    <CreateReviewFormModal sauce={sauce} hasReviewed={hasReviewed}/>
+                    <CreateReviewFormModal sauce={sauce} hasReviewed={hasReviewed} setHasReviewed={setHasReviewed}
+                    setScore={setScore} setSpice={setSpice} previousReview={previousReview}/>
                 </div>
-                <SauceReviews sauce={sauce} hasReviewed={hasReviewed}/>
+                <SauceReviews sauce={sauce} hasReviewed={hasReviewed} setHasReviewed={setHasReviewed}/>
             </div>
         </div>
     )

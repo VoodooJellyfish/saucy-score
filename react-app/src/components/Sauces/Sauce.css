@@ -2,7 +2,11 @@
   margin-top: 120px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  border: 1px solid black;
+  /* border: 1px solid black; */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+  transition: 0.3s;
+  border-radius: 5px;
+  background-color: #1b1a15;
 }
 
 .sauce-detail-card {
@@ -10,4 +14,46 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  /* border: 1px solid black; */
+}
+.sauce-img-container {
+  margin-top: 5px;
+}
+
+.text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #aa090d;
+  margin: 10px 10px;
+  border-radius: 5px;
+  min-width: 300px;
+}
+
+.text-container > div {
+  padding: 10px;
+}
+
+.sauce-reviews {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10px;
+}
+#description,
+#detail-username,
+#sauce-name {
+  color: #ffd12d;
+}
+
+#icon-holder {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#icon-holder > div {
+  margin-left: 20px;
+  margin-right: 20px;
 }

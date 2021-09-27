@@ -14,6 +14,7 @@ import Home from './components/Home';
 import { authenticate } from './store/session';
 import {thunk_getSauces} from './store/sauce'
 import { thunk_getReviews } from './store/review';
+import UserProfile from './components/Profile/Profile';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -60,7 +61,7 @@ function App() {
           <UsersList/>
         </Route>
         <Route path='/users/:userId' exact={true} >
-          <User />
+          <UserProfile sauces={sauces} reviews={reviews} />
         </Route>
       <Route path='/' exact={true} >
           <Home sessionUser={sessionUser} authenticated={authenticated} />

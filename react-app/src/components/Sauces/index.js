@@ -32,12 +32,11 @@ export default function SauceList({ sauces }) {
                                 <Link id='name-parent' to={`sauces/${sauce?.id}`}>
                                     <p id='sauce-name'>{sauce?.name}</p>
                                 </Link>
-                                <div className="description-container">
+                                <div className="description-container yellow">
                                     <p id="sauce-description">{sauce?.description}</p>
                                 </div>
-                                <p id="username">Submitted By: {sauce?.username} on {sauce?.created_at}</p>
+                                <p id="username" className="yellow">Submitted By: {sauce?.username} on {sauce?.created_at}</p>
                             </div>
-
                         </div>
                     )      
                 })}

@@ -5,6 +5,7 @@
   max-height: 500px;
   max-width: 500px;
   padding-top: 10px;
+  background-color: #aa090d;
   /* display: grid;
   align-items: center;
   justify-content: center; */
@@ -15,7 +16,7 @@
 }
 
 .words-container {
-  /* padding: 2px 6px; */
+  padding: 6px 6px;
   /* overflow-y: auto; */
   height: 155px;
   /* border: 1px black solid;
@@ -27,6 +28,9 @@
   margin: 4px;
   overflow-y: auto;
 }
+/* ::-webkit-scrollbar-track {
+  background-color: #aa090d;
+} */
 
 .sauce-img {
   height: 250px;
@@ -63,8 +67,19 @@
   justify-content: center;
   grid-gap: 1rem;
   margin-top: 20px;
+  background-color: #1b1a15;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .page-container {
-  margin-top: 100px;
+  margin-top: 90px;
+}
+
+.yellow {
+  color: #ffd12d;
+}
+
+#sauce-description {
+  text-align: center;
 }

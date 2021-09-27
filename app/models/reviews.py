@@ -32,4 +32,7 @@ class Review(db.Model):
             "created_at": f'{self.created_at.date()}',
             "updated_at": self.updated_at,
             "sauce_id": self.sauce_id,
+            "username": self.user.username,
+            "sauce_name": self.sauce.name,
+            "sauce_image": self.sauce.image_url
         }
