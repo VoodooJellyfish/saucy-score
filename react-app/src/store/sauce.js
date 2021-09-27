@@ -45,6 +45,16 @@ export const thunk_getSauce = (sauce) => async (dispatch) => {
         dispatch((loadSauces(sauce)))
     }
 };
+
+export const thunk_getUserSauces = (userId) => async (dispatch) => {
+    const res = await fetch(`/api/users/${userId}/sauces`);
+    if (res.ok) {
+        const sauces = await res.json();
+        dispatch((loadSauces(sauces)))
+    }
+};
+
+
 // export const getUserSauces = (userId) => async (dispatch) => {
 //     const res = await fetch(`/api/posts/user/${userId}`)
 

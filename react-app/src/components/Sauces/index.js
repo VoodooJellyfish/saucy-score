@@ -37,7 +37,6 @@ export default function SauceList({ sauces }) {
                                 </div>
                                 <p id="username">Submitted By: {sauce?.username} on {sauce?.created_at}</p>
                             </div>
-
                         </div>
                     )      
                 })}

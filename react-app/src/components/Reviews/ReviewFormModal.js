@@ -46,7 +46,7 @@ export default function CreateReviewFormModal({sauce, hasReviewed, setHasReviewe
                 <button className="formRequestButtons" onClick={handleClick}>Create Review
                 </button>
                 {showModal && <Modal onClose={() => setShowModal(false)}>
-                    <CreateReviewForm closeModal={closeModal} sauce={sauce} hasReviewed={hasReviewed} setHasReviewed={setHasReviewed}  setScore={setScore} setSpice={setSpice} />
+                    <CreateReviewForm closeModal={closeModal} sauce={sauce} hasReviewed={hasReviewed} setHasReviewed={setHasReviewed}  setScore={setScore} setSpice={setSpice} previousReview={previousReview} />
                 </Modal>}
             </> : <> </>}
         </>

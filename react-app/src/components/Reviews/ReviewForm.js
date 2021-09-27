@@ -4,7 +4,7 @@ import { useParams } from 'react-router';
 import { thunk_createNewReview } from '../../store/review';
 import { findScore, findSpice } from '../Sauces/SauceDetail';
 
-const CreateReviewForm = ({sauce, closeModal, hasReviewed, setHasReviewed, setScore, setSpice}) => {
+const CreateReviewForm = ({sauce, closeModal, hasReviewed, setHasReviewed, previousReview, setScore, setSpice}) => {
 
     const [errors, setErrors] = useState([]);
     const [body, setBody] = useState("");

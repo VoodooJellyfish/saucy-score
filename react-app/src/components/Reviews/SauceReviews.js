@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import Review from './Review';
 import { thunk_getReviews } from '../../store/review';
 import { thunk_getSauceReviews } from '../../store/review';
+import "./Review.css"
 // import EditReviewFormModal from './EditReviewModal';
 
 export default function SauceReviews({sauce, hasReviewed, setHasReviewed}) {
@@ -23,7 +24,7 @@ export default function SauceReviews({sauce, hasReviewed, setHasReviewed}) {
             <div className='reviews-container'>
                 {sauceReviews.map(review => {
                     return(
-                        <div key={review?.id}>
+                        <div id="review-card" key={review?.id}>
                             <Review review={review} sauce={sauce} hasReviewed={hasReviewed} setHasReviewed={setHasReviewed}/>
                         </div>
                         // <Link to={`reviews/${review?.id}`}>

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { thunk_goDeleteReview } from '../../store/review';
 
-export const DeleteReviewButton = ({review, ownsReview, setHasReviewed}) => {
+export const DeleteReviewButton = ({review, ownsReview, setHasReviewed, previousReview}) => {
 
     const user = useSelector(state => state.session.user)
     const userId = user?.id
@@ -23,7 +23,7 @@ export const DeleteReviewButton = ({review, ownsReview, setHasReviewed}) => {
         <>
         {ownsReview ?
             <form onSubmit={handleDelete}>
-                <button className="formRequestButtons" id="del-review" type="submit">Delete Review</button>
+                <button className="formRequestButtons modal-btn" id="del-review" type="submit"><i class='fas fa-trash-alt'></i></button>
             </form> : <> </>}
         </>
     )
