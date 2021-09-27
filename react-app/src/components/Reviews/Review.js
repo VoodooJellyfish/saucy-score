@@ -25,6 +25,18 @@ export default function Review({sauce, review, hasReviewed, setHasReviewed}) {
         
     }, [ownsReview]);
 
+    let score = review?.rating
+    let scoreArr = []
+    for(let i=0; i < +score; i++) {
+        scoreArr.push('⭐️')
+    }
+
+    let spice = review?.spice_level
+    let spiceArr = []
+    for(let i=0; i < +spice; i++) {
+        spiceArr.push('🌶')
+    }
+
     return (
         <>
             <div key={review?.id} className="reviewContainer">
@@ -33,12 +45,23 @@ export default function Review({sauce, review, hasReviewed, setHasReviewed}) {
                         {review?.username}
                     </Link>
                     <div id="datePrev">{review?.updated_at}</div>
+                    <div>
+                        <EditReviewFormModal review={review} sauce={sauce} ownsReview={ownsReview}/>
+                        <DeleteReviewButton review={review} ownsReview={ownsReview} setHasReviewed={setHasReviewed}/>
+                    </div>
+                </div>
                 <div>
-                    <EditReviewFormModal review={review} sauce={sauce} ownsReview={ownsReview}/>
-                    <DeleteReviewButton review={review} ownsReview={ownsReview} setHasReviewed={setHasReviewed}/>
+                    {scoreArr.map((el, i) => {
+                        return <span key={i} >{el}</span>
+                    })}
                 </div>
+                <div>
+                    {spiceArr.map((el, i) => {
+                        return <span key={i} >{el}</span>
+                    })}
                 </div>
-                <div id="commentContent">{review.body}</div>
+                <div>Spice Level: {review?.spice_level}</div>
+                <div id="commentContent">{review?.body}</div>
             </div>
         </>
     )

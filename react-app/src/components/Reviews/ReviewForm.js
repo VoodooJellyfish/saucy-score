@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router';
 import { thunk_createNewReview } from '../../store/review';
+import { findScore, findSpice } from '../Sauces/SauceDetail';
 
-const CreateReviewForm = ({sauce, closeModal, hasReviewed, setHasReviewed}) => {
+const CreateReviewForm = ({sauce, closeModal, hasReviewed, setHasReviewed, setScore, setSpice}) => {
 
     const [errors, setErrors] = useState([]);
     const [body, setBody] = useState("");
@@ -42,6 +43,7 @@ const CreateReviewForm = ({sauce, closeModal, hasReviewed, setHasReviewed}) => {
             spice_level: +spiceLevel,
             sauce_id: +sauce?.id
         }
+
         dispatch(thunk_createNewReview(payload))
         setHasReviewed(!hasReviewed)
         setErrors([])
