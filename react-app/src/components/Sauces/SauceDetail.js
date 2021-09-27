@@ -89,12 +89,12 @@ export default function Sauce () {
     
     let scoreArr = []
     for(let i=0; i < findScore(reviews); i++) {
-        scoreArr.push('⭐️')
+        scoreArr.push('fas fa-star')
     }
 
     let spiceArr = []
     for(let i=0; i < findSpice(reviews); i++) {
-        spiceArr.push('🌶')
+        spiceArr.push('fas fa-pepper-hot')
     }
     
 
@@ -108,18 +108,21 @@ export default function Sauce () {
                     <img className= "detail-image" src={sauce?.image_url} alt={sauce?.name}></img>
                 </div>
                 <div className='text-container'>
-                    <div>{sauce?.name}</div>
-                    <div>{sauce?.description}</div>
-                    <div>
-                        {scoreArr.map((el, i) => {
-                            return <span key={i} >{el}</span>
-                        }) }
+                    <div id="sauce-name">{sauce?.name}</div>
+                    <div id="icon-holder">
+                        <div>
+                            {scoreArr.map((el, i) => {
+                            return <span key={i}><i class={el}></i></span>
+                            })}
+                        </div>
+                        <div></div>
+                        <div>
+                            {spiceArr.map((el, i) => {
+                            return <span key={i}><i class={el}></i></span>
+                            })}
+                        </div>
                     </div>
-                    <div>
-                        {spiceArr.map((el, i) => {
-                            return <span key={i} >{el}</span>
-                        })}
-                    </div>
+                    <div id="description">{sauce?.description}</div>
                     <div id="detail-username">
                         Submitted By: {sauce?.username} on {sauce?.created_at}
                     </div>
