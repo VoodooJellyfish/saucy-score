@@ -37,7 +37,7 @@ export default function CreateSauceFormModal() {
 
     return (
         <>
-            <button className="formRequestButtons" onClick={handleClick}> Submit Sauce
+            <button className="btn" onClick={handleClick}> Submit Sauce
             </button>
             {showModal && <Modal onClose={() => setShowModal(false)}>
                 <CreateSauceForm closeModal={closeModal} />

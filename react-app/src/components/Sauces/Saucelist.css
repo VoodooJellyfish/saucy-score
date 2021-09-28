@@ -35,6 +35,7 @@
 .sauce-img {
   height: 250px;
   width: 100px;
+  /* object-fit: cover; */
 }
 .image-container {
   display: flex;
@@ -74,6 +75,10 @@
 
 .page-container {
   margin-top: 90px;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  /* justify-content: center; */
 }
 
 .yellow {
@@ -82,4 +87,53 @@
 
 #sauce-description {
   text-align: center;
+}
+
+.user-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 175px);
+  grid-auto-rows: auto;
+  align-items: center;
+  justify-content: center;
+  grid-gap: 1rem;
+  margin-top: 20px;
+  background-color: #1b1a15;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.user-card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+  max-height: 350px;
+  max-width: 400px;
+  padding-top: 10px;
+  background-color: #aa090d;
+  /* display: grid;
+  align-items: center;
+  justify-content: center; */
+}
+
+.user-page-container {
+  margin-top: 90px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  /* align-items: center; */
+  /* justify-content: center; */
+}
+
+.btn-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+#del {
+  background-color: #aa090d;
+  border: none;
+  color: #ffd12d;
+  padding: 0;
 }

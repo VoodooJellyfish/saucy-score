@@ -5,6 +5,21 @@
   font-family: "Roboto", Arial, Helvetica, sans-serif;
 }
 
+html,
+body,
+#root {
+  height: 100vh !important;
+  min-height: 100% !important;
+  width: 100vw !important;
+  min-width: 100% !important;
+  margin: 0;
+  padding: 0;
+  background-color: #1b1a15;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+
 /* .form-container {
   width: 500px;
   border-radius: 5px;

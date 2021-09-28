@@ -4,6 +4,8 @@ import { Link } from "react-router-dom"
 import { useDispatch } from "react-redux"
 import { thunk_getUserReviews } from "../../store/review"
 import { thunk_getUserSauces } from "../../store/sauce"
+import EditSauceFormModal from "../Sauces/EditSauceModal"
+import { DeleteSauceButton } from "../Sauces/DeleteSauceButton"
 
 export default function UserProfile ({sauces, reviews}) {
     const sessionUser = useSelector(state => state.session?.user)
@@ -22,13 +24,21 @@ export default function UserProfile ({sauces, reviews}) {
 
     },[userId, dispatch])
 
+    let isSauceOwner = true
+
 
     return (
-        <div>
-            <div className="user-sauces">
+        <div className='user-page-container'>
+            {/* <h2>Your Sauces</h2> */}
+            <div className="user-container">
+                {/* <h2>Your Sauces</h2> */}
                 {userSauces.map((sauce) => {
                     return(
-                        <div key={sauce?.id} className="sauce-card">
+                        <div key={sauce?.id} className="user-card">
+                            <div className='btn-container'>
+                                <EditSauceFormModal sauce={sauce} isSauceOwner={isSauceOwner}/>
+                                <DeleteSauceButton sauce={sauce}/>
+                            </div>
                             <div className="image-container">
                                 <Link className="img-link" to={`/sauces/${sauce?.id}`}>
                                     <img className="sauce-img" src={sauce?.image_url} alt={sauce?.name}></img>

@@ -3,9 +3,10 @@
   width: 100%;
   background-image: linear-gradient(0deg, #00000088 30%, #ffffff44 100%),
     url("https://api.time.com/wp-content/uploads/2014/07/hot_peppers.jpg?w=1596&quality=70");
-  background-size: cover;
+  /* background-size: cover; */
   background-position: "center";
   font-family: sans-serif;
   margin-top: 80px;
   padding: 30px;
+  object-fit: cover;
 }

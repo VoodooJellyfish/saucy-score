@@ -108,11 +108,11 @@ const EditSauceForm = ({ sauce, closeModal }) => {
                     <button className="plus-btn" type="submit">Submit Edit</button>
                 </form>
             </div>
-            <div className='form-group'>
+            {/* <div className='form-group'>
                 <form onSubmit={handleDelete}>
-                    <button className="formRequestButtons" id="del-comment" type="submit">Delete Sauce</button>
+                    <button className="formRequestButtons" id="del" type="submit">Delete Sauce</button>
                 </form>
-            </div>
+            </div> */}
         </div>
     );
 };

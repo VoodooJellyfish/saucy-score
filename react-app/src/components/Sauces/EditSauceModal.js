@@ -18,7 +18,7 @@ export default function EditSauceFormModal({sauce, isSauceOwner}) {
         <>
         {isSauceOwner ?
             <div>
-                <button className="btn" onClick={handleClick}> Edit Sauce
+                <button id='del' onClick={handleClick}> <i className='fas fa-edit'></i>
                 </button>
                 {showModal && <Modal onClose={() => setShowModal(false)}>
                     <EditSauceForm closeModal={closeModal} sauce={sauce} />
