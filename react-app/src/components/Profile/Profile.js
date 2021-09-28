@@ -56,12 +56,28 @@ export default function UserProfile ({sauces, reviews}) {
                         </div>
                     )})}
             </div>
-            <div classname="user-reviews">
+            <div className="user-review-container">
                 {userReviews.map((review) => {
                     return (
-                        <div> 
-                            {review?.sauce_name}
-
+                        <div key={review?.id} className="user-review-card">
+                            {/* <div className='btn-container'>
+                                <EditSauceFormModal sauce={sauce} isSauceOwner={isSauceOwner}/>
+                                <DeleteSauceButton sauce={sauce}/>
+                            </div> */}
+                            <div id='review-container' className="image-container">
+                                <Link className="img-link" to={`/sauces/${review?.sauce_id}`}>
+                                    <img className="sauce-img" src={review?.sauce_image} alt={review?.sauce_name}></img>
+                                </Link>
+                            </div>
+                            <div className="words-container">
+                                <Link id='name-parent' to={`/sauces/${review?.sauce_id}`}>
+                                    <p id='sauce-name'>{review?.sauce_name}</p>
+                                </Link>
+                                {/* <div className="description-container">
+                                    <p id="sauce-description">{sauce?.description}</p>
+                                </div>
+                                <p id="username">Submitted By: {sauce?.username} on {sauce?.created_at}</p> */}
+                            </div>
                         </div>
 
                     
