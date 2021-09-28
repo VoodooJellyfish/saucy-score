@@ -18,13 +18,13 @@ function Splash() {
     return (
         <div className="splashContainer">
             {/* <img src="https://miro.medium.com/max/1400/1*QwKGI3ddtSnAm1jnb8PVmA.jpeg" alt="fire"/> */}
-            <h1 id="splashTitle">Find Your Next Favorite Hot Sauce</h1>
-            <div className="splashLinkDiv">
+            <h1 id="splashTitle">Find Your Next Favorite Hot Sauce with Saucy-Score</h1>
+            {/* <div className="splashLinkDiv">
                 <Link to="/sign-up" className="splashLinks">Sign up</Link> 
                 <Link to="login" className="splashLinks">Log in</Link>
                 <Link to="/sauces" className="splashLinks">View Sauces</Link>
                 <a className="splashLinks" onClick={demoLogin}>Demo</a>
-            </div>
+            </div> */}
         </div>
     )
 }

@@ -29,6 +29,9 @@ export default function UserProfile ({sauces, reviews}) {
 
     return (
         <div>
+            <div className="header2">
+                Welcome back, <span id="intro-name">{sessionUser?.username}</span>
+            </div>
             <div id='parent'>
                 <div className="header">
                     Submitted Sauces
