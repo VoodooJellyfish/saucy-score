@@ -14,29 +14,31 @@ const NavBar = ({ sessionUser, authenticated }) => {
             <img id="logo" src="https://thumbs.dreamstime.com/b/spicy-pepper-chili-breathing-fire-vector-clip-art-illustration-simple-gradients-fire-separate-layers-60387929.jpg" alt="chili"/>
             <nav>
                 <ul>
-                <li className="nav-li">
-                        <NavLink className="nav-link" to='/' exact={true} activeClassName='active'>
-                        Home
-                        </NavLink>
-                </li>
+                
                 {!authenticated ?
                     <>
-                    <li className="nav-li">
-                            <SignUpModal/>
-                    </li>
-                    <li className="nav-li">
+                        <li className="nav-li">
+                            <NavLink className="nav-link" to='/' exact={true} activeClassName='active'>
+                            <i className="fas fa-home fa-lg"></i>
+                            </NavLink>
+                        </li>
+                        <li className="nav-li">
+                                <SignUpModal/>
+                        </li>
+                        <li className="nav-li">
+                            
+                                <LoginFormModal/>
+                        </li>
+                        <li className="nav-li">
+                            <DemoButton className="navlink" />
+                        </li>
                         
-                            <LoginFormModal/>
-                    </li>
-                    <li className="nav-li">
-                        <DemoButton className="navlink" />
-                    </li>
                     </>
                     :
                     <>
                     <li className="nav-li">
                         <NavLink className="nav-link" to={`/users/${sessionUser.id}`} exact={true} activeClassName='active'>
-                        Profile
+                        <i className="fas fa-home fa-lg"></i>
                         </NavLink>
                     </li>
                     <li className="nav-li">

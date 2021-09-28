@@ -3,8 +3,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
 import "./Form.css"
+import { useHistory } from 'react-router';
 
 const LoginForm = ({closeModal}) => {
+    const history = useHistory()
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -16,8 +18,12 @@ const LoginForm = ({closeModal}) => {
     const data = await dispatch(login(email, password));
     if (data) {
       setErrors(data);
+      
+    } else {
+        history.push(`/users/${user?.id}`)
     }
     // closeModal()
+    
   };
 
   const updateEmail = (e) => {

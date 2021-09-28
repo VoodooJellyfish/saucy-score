@@ -22,7 +22,7 @@ export default function LoginFormModal() {
         <>
         {/* { */}
             {/* <> */}
-                <button className="formRequestButtons" onClick={handleClick}>Login
+                <button className="formRequestButtons" onClick={handleClick}><i className="fas fa-sign-in-alt fa-lg"></i>
                 </button>
                 {showModal && <Modal onClose={() => setShowModal(false)}>
                     <LoginForm closeModal={closeModal}/>

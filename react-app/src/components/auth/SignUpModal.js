@@ -22,7 +22,7 @@ export default function SignUpModal() {
         <>
         {/* { */}
             {/* <> */}
-                <button className="formRequestButtons" onClick={handleClick}>Sign Up
+                <button className="formRequestButtons" onClick={handleClick}><i className="fas fa-user-plus fa-lg"></i>
                 </button>
                 {showModal && <Modal onClose={() => setShowModal(false)}>
                     <SignUpForm closeModal={closeModal}/>

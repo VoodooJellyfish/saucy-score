@@ -22,9 +22,37 @@
 
 .nav-li {
   margin: 20px;
+  /* font-size: 16px; */
 }
 
 .nav-link {
   color: black;
   text-decoration: none;
+}
+.nav-link:hover {
+  color: red;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.formRequestButtons {
+  background-color: white;
+  border: none;
+}
+
+.formRequestButtons:hover {
+  color: red;
+  border: none;
+  cursor: pointer;
+}
+
+#demo-button {
+  border: none;
+  cursor: pointer;
+  background-color: white;
+  font-size: 16px;
+}
+
+#demo-button:hover {
+  color: red;
 }
