@@ -70,16 +70,16 @@ const EditSauceForm = ({ sauce, closeModal }) => {
     }
 
     return (
-        <section>
+        <div className="sauce-form">
             <div>
-                <form className='form-group' onSubmit={handleSubmit}>
-                    <div>
+                <form className='edit-sauce-form' onSubmit={handleSubmit}>
+                    <div className='form-group'>
                         {errors.map((error, ind) => (
                             <div key={ind}>{error}</div>
                         ))}
                     </div>
                     <div className='form-group'>
-                        <label htmlFor='name'>Name: </label>
+                        <label className='form-label' htmlFor='name'>Name: </label>
                         <input
                             type="text"
                             placeholder="Edit name. . ."
@@ -88,32 +88,32 @@ const EditSauceForm = ({ sauce, closeModal }) => {
                             className='form-control' />
                     </div>
                     <div className='form-group'>
-                        <label htmlFor='description'>Description: </label>
-                        <input
+                        <label className='form-label' htmlFor='description'>Description: </label>
+                        <textarea
                             type="textarea"
                             placeholder="Edit description. . ."
                             value={description}
                             onChange={updateDescription}
-                            className='form-control' />
+                            className='text-control' />
                     </div>
                     <div className='form-group'>
-                        <label htmlFor='imageUrl'>Image Url: </label>
-                        <input
+                        <label className='form-label' htmlFor='imageUrl'>Image Url: </label>
+                        <textarea
                             type="textarea"
                             placeholder="Edit Image Url. . ."
                             value={imageUrl}
                             onChange={updateImageUrl}
-                            className='form-control' />
+                            className='text-control' />
                     </div>
-                    <button className="formRequestButtons" type="submit">Submit Edit</button>
+                    <button className="plus-btn" type="submit">Submit Edit</button>
                 </form>
             </div>
-            <div className='form-group'>
+            {/* <div className='form-group'>
                 <form onSubmit={handleDelete}>
-                    <button className="formRequestButtons" id="del-comment" type="submit">Delete Sauce</button>
+                    <button className="formRequestButtons" id="del" type="submit">Delete Sauce</button>
                 </form>
-            </div>
-        </section>
+            </div> */}
+        </div>
     );
 };
 

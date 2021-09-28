@@ -44,7 +44,7 @@ export default function EditReviewFormModal({sauce, review, ownsReview}) {
         {ownsReview ?
             <>
                 <button className="formRequestButtons modal-btn" onClick={handleClick}>
-                    <i class='fas fa-edit'></i>
+                    <i className='fas fa-edit'></i>
                 </button>
                 {showEditReviewModal && <Modal onClose={() => setShowEditReviewModal(false)}>
                     <EditReviewForm closeEditReviewModal={closeEditReviewModal} sauce={sauce} review={review} />

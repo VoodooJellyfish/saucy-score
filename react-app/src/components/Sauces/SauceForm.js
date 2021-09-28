@@ -58,25 +58,25 @@ const CreateSauceForm = ({closeModal}) => {
 
 
     return (
-        <form className='create-sauce-form' onSubmit={createSauce}>
-            <div>
+        <form className='edit-sauce-form' onSubmit={createSauce}>
+            <div className='form-group'>
                 {errors.map((error, ind) => (
-                    <div key={ind}>{error}</div>
+                    <div className='errors' key={ind}>{error}</div>
                 ))}
             </div>
             <div className='form-group'>
-                <label htmlFor='name'>Name: </label>
-                <input className='form-control' name='name' type='text' placeholder='Enter sauce name' value={name} onChange={updateName} />
+                <label className='form-label' htmlFor='name'>Name: </label>
+                <input className='form-control' name='name' type='text' placeholder='Enter sauce name. . .' value={name} onChange={updateName} />
             </div>
             <div className='form-group'>
-                <label htmlFor='description'>Description: </label>
-                <textarea className='text-control' name='description' type='textarea' placeholder='Enter optional description' value={description} onChange={updateDescription} />
+                <label className='form-label' htmlFor='description'>Description: </label>
+                <textarea className='text-control' name='description' type='textarea' placeholder='Enter description. . .' value={description} onChange={updateDescription} />
             </div>
             <div className='form-group'>
-                <label htmlFor='imageUrl'>Image Url: </label>
-                <input className='imageUrl' name='imageUrl' type='textarea' placeholder='Enter Image Url' value={imageUrl} onChange={updateImageUrl}/>
+                <label className='form-label' htmlFor='imageUrl'>Image Url: </label>
+                <textarea className='text-control' name='imageUrl' type='textarea' placeholder='Paste Image Url. . .' value={imageUrl} onChange={updateImageUrl}/>
             </div>
-            <button className="formRequestButtons" type='submit'>Submit Sauce</button>
+            <button className="plus-btn" type='submit'>Submit Sauce</button>
         </form>
     )
 }

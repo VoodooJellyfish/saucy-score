@@ -1,11 +1,19 @@
 .splashContainer {
-  height: 100vh;
+  height: 100%;
   width: 100%;
-  background-image: linear-gradient(0deg, #00000088 30%, #ffffff44 100%),
-    url("https://api.time.com/wp-content/uploads/2014/07/hot_peppers.jpg?w=1596&quality=70");
+  background-image: url("https://besthqwallpapers.com/Uploads/20-8-2019/102154/thumb2-fire-flames-4k-orange-flames-macro-bonfire.jpg");
+  background-repeat: no-repeat;
+  overflow: none;
   background-size: cover;
-  background-position: "center";
-  font-family: sans-serif;
-  margin-top: 80px;
-  padding: 30px;
+  /* background-position: "center"; */
+  box-sizing: border-box;
+  /* margin-top: 80px; */
+  /* padding: 30px; */
+  object-fit: cover;
+}
+
+#splashTitle {
+  color: White;
+  padding-top: 130px;
+  text-align: center;
 }
