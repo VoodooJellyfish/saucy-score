@@ -63,25 +63,25 @@ const CreateReviewForm = ({sauce, closeModal, hasReviewed, setHasReviewed, previ
     };
 
     return (
-        <form className='create-review-form' onSubmit={createReview}>
-            <div>
+        <form className='edit-sauce-form' onSubmit={createReview}>
+            <div className='form-group'>
                 {errors.map((error, ind) => (
-                    <div key={ind}>{error}</div>
+                    <div className='errors' key={ind}>{error}</div>
                 ))}
             </div>
             <div className='form-group'>
-                <label htmlFor='body'> Review Body: </label>
-                <input className='form-control' name='body' type='textarea' placeholder='Enter review. . .' value={body} onChange={updateBody} />
+                <label className='form-label' htmlFor='body'> Review Body: </label>
+                <textarea className='text-control' name='body' type='textarea' placeholder='Enter review. . .' value={body} onChange={updateBody} />
             </div>
             <div className='form-group'>
-                <label htmlFor='spiceLevel'>Spice Level: </label>
-                <input className='spice-dropdown' name='spiceLevel' type='number' placeholder='Enter spice level (1, 10)' value={spiceLevel} onChange={updateSpiceLevel} min='1' max='10' />
+                <label className='form-label' htmlFor='spiceLevel'>Spice Level: </label>
+                <input className='dropdown' name='spiceLevel' type='number' placeholder='Enter spice level (1, 10)' value={spiceLevel} onChange={updateSpiceLevel} min='1' max='10' />
             </div>
             <div className='form-group'>
-                <label htmlFor='rating'>Rating: </label>
-                <input className='rating-dropdown' name='rating' type='number' placeholder='Enter rating (1, 5)' value={rating} onChange={updateRating} min='1' max='5' />
+                <label className='form-label' htmlFor='rating'>Rating: </label>
+                <input className='dropdown' name='rating' type='number' placeholder='Enter rating (1, 5)' value={rating} onChange={updateRating} min='1' max='5' />
             </div>
-            <button className="formRequestButtons" type='submit'>Create Review</button>
+            <button className="plus-btn" type='submit'>Create Review</button>
         </form>
     )   
 }

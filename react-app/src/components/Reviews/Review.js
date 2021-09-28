@@ -53,13 +53,13 @@ export default function Review({sauce, review, hasReviewed, setHasReviewed, prev
                 <div className="icon-container">
                     <span id='star-container'>
                         {scoreArr.map((el, i) => {
-                        return <span key={i}><i class={el}></i></span>
+                        return <span key={i}><i className={el}></i></span>
                         })}
                     </span>
                     {/* <span> </span> */}
                     <span id='spice-container'>
                         {spiceArr.map((el, i) => {
-                        return <span key={i}><i class={el}></i></span>
+                        return <span key={i}><i className={el}></i></span>
                         })}
                     </span>
                 </div>

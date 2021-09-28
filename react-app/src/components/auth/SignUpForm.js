@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
+import { useHistory } from 'react-router';
 
-const SignUpForm = () => {
+const SignUpForm = ({closeModal}) => {
+    const history = useHistory()
   const [errors, setErrors] = useState([]);
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
@@ -19,6 +21,8 @@ const SignUpForm = () => {
       if (data) {
         setErrors(data)
       }
+    } else if (password !== repeatPassword) {
+        setErrors(["Passwords must match."])
     }
   };
 
@@ -43,50 +47,59 @@ const SignUpForm = () => {
   }
 
   return (
-    <form onSubmit={onSignUp}>
-      <div>
+    <form className='edit-sauce-form' onSubmit={onSignUp}>
+     <div className='form-group'>
         {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
+          <div className='errors' key={ind}>{error}</div>
         ))}
       </div>
-      <div>
-        <label>User Name</label>
+      <div className='form-group'>
+        <label className='form-label'>User Name</label>
         <input
+        className='form-control'
+        placeholder= "Enter username . . ."
           type='text'
           name='username'
           onChange={updateUsername}
           value={username}
         ></input>
       </div>
-      <div>
-        <label>Email</label>
+      <div className='form-group'>
+        <label className='form-label'>Email</label>
         <input
+        className='form-control'
+        placeholder="Enter email . . ."
           type='text'
           name='email'
           onChange={updateEmail}
           value={email}
         ></input>
       </div>
-      <div>
-        <label>Password</label>
+      <div className='form-group'>
+        <label className='form-label'>Password</label>
         <input
+        className='form-control'
+        placeholder= "Enter password. . ."
           type='password'
           name='password'
           onChange={updatePassword}
           value={password}
         ></input>
       </div>
-      <div>
-        <label>Repeat Password</label>
+      <div className='form-group'>
+        <label className='form-label'>Repeat Password</label>
         <input
+        className='form-control'
           type='password'
           name='repeat_password'
           onChange={updateRepeatPassword}
           value={repeatPassword}
           required={true}
+          placeholder='Confirm password. . .'
+
         ></input>
       </div>
-      <button type='submit'>Sign Up</button>
+      <button className='plus-btn' type='submit'>Sign Up</button>
     </form>
   );
 };

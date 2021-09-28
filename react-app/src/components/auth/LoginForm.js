@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
+import "./Form.css"
 
-const LoginForm = () => {
+const LoginForm = ({closeModal}) => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -16,6 +17,7 @@ const LoginForm = () => {
     if (data) {
       setErrors(data);
     }
+    // closeModal()
   };
 
   const updateEmail = (e) => {
@@ -31,32 +33,32 @@ const LoginForm = () => {
   }
 
   return (
-    <form onSubmit={onLogin}>
-      <div>
+    <form className="edit-sauce-form" onSubmit={onLogin}>
+      <div className='form-group'>
         {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
+          <div className='errors' key={ind}>{error}</div>
         ))}
       </div>
-      <div>
-        <label htmlFor='email'>Email</label>
-        <input
+      <div className='form-group'>
+        <label className='form-label' htmlFor='email'>Email</label>
+        <input className='form-control'
           name='email'
           type='text'
-          placeholder='Email'
+          placeholder='Enter email. . .'
           value={email}
           onChange={updateEmail}
         />
       </div>
-      <div>
-        <label htmlFor='password'>Password</label>
-        <input
+      <div className='form-group'>
+        <label className='form-label' htmlFor='password'>Password</label>
+        <input className='form-control'
           name='password'
           type='password'
-          placeholder='Password'
+          placeholder='Enter password. . .'
           value={password}
           onChange={updatePassword}
         />
-        <button type='submit'>Login</button>
+        <button className="btn login" type='submit'>Login</button>
       </div>
     </form>
   );

@@ -23,7 +23,7 @@ export const DeleteReviewButton = ({review, ownsReview, setHasReviewed, previous
         <>
         {ownsReview ?
             <form onSubmit={handleDelete}>
-                <button className="formRequestButtons modal-btn" id="del-review" type="submit"><i class='fas fa-trash-alt'></i></button>
+                <button className="formRequestButtons modal-btn" id="del-review" type="submit"><i className='fas fa-trash-alt'></i></button>
             </form> : <> </>}
         </>
     )

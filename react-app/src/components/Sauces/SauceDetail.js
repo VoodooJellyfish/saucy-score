@@ -112,13 +112,13 @@ export default function Sauce () {
                     <div id="icon-holder">
                         <div>
                             {scoreArr.map((el, i) => {
-                            return <span key={i}><i class={el}></i></span>
+                            return <span key={i}><i className={el}></i></span>
                             })}
                         </div>
                         <div></div>
                         <div>
                             {spiceArr.map((el, i) => {
-                            return <span key={i}><i class={el}></i></span>
+                            return <span key={i}><i className={el}></i></span>
                             })}
                         </div>
                     </div>

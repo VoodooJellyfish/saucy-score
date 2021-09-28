@@ -3,7 +3,9 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import DemoButton from './auth/Demo';
+import LoginFormModal from './auth/LoginModal';
 import "./Navbar.css"
+import SignUpModal from './auth/SignUpModal';
 
 
 const NavBar = ({ sessionUser, authenticated }) => {
@@ -20,15 +22,11 @@ const NavBar = ({ sessionUser, authenticated }) => {
                 {!authenticated ?
                     <>
                     <li className="nav-li">
-                            <NavLink className="nav-link" to='/sign-up' exact={true} activeClassName='active'>
-                            Sign Up
-                            </NavLink>
+                            <SignUpModal/>
                     </li>
                     <li className="nav-li">
                         
-                            <NavLink className="nav-link" to='/login' exact={true} activeClassName='active'>
-                            Login
-                            </NavLink>
+                            <LoginFormModal/>
                     </li>
                     <li className="nav-li">
                         <DemoButton className="navlink" />

@@ -16,6 +16,7 @@ const ModalStyle = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 5px;
     }
 
     #modal-background {
@@ -29,7 +30,7 @@ const ModalStyle = styled.div`
 
     #modal-content {
     position: absolute;
-    background-color:#454a52;
+    background-color:#1B1A15;
     }
 `
 
