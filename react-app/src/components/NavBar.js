@@ -6,6 +6,7 @@ import DemoButton from './auth/Demo';
 import LoginFormModal from './auth/LoginModal';
 import "./Navbar.css"
 import SignUpModal from './auth/SignUpModal';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
 const NavBar = ({ sessionUser, authenticated }) => {
@@ -19,7 +20,8 @@ const NavBar = ({ sessionUser, authenticated }) => {
                     <>
                         <li className="nav-li">
                             <NavLink className="nav-link" to='/' exact={true} activeClassName='active'>
-                            <i className="fas fa-home fa-lg"></i>
+                            {/* <i className="fas fa-home fa-lg"></i> */}
+                            <FontAwesomeIcon icon={['fas', 'home']} size="lg"/>
                             </NavLink>
                         </li>
                         <li className="nav-li">
@@ -38,7 +40,7 @@ const NavBar = ({ sessionUser, authenticated }) => {
                     <>
                     <li className="nav-li">
                         <NavLink className="nav-link" to={`/users/${sessionUser.id}`} exact={true} activeClassName='active'>
-                        <i className="fas fa-home fa-lg"></i>
+                        <FontAwesomeIcon icon={['fas', 'home']} size="lg"/>
                         </NavLink>
                     </li>
                     <li className="nav-li">
@@ -49,20 +51,21 @@ const NavBar = ({ sessionUser, authenticated }) => {
                 <li className="nav-li">
                 
                         <NavLink className="nav-link" to='/sauces' exact={true} activeClassName='active'>
-                        View Sauces
+                        All Sauces
                         </NavLink>
                 </li>
                 <li className="nav-li">
-                    {/* <NavLink className="nav-link" to='/about' exact={true} activeClassName='active'>
-                    About Me
-                    </NavLink> */}
-                    <a href="https://www.linkedin.com/in/tanner-pedretti-5559141a2/">
-                        {/* <img src="https://content.linkedin.com/content/dam/me/brand/en-us/brand-home/logos/01-dsk-e5-v2.png/jcr:content/renditions/01-dsk-e5-v2-2x.png" alt={'linked In'}></img> */}
+                    <a className="about" href="https://www.linkedin.com/in/tanner-pedretti-5559141a2/">
+                        <FontAwesomeIcon icon={['fab', 'linkedin']} size="lg"/>
                     </a>
                 </li>
-                {/* <li className="nav-li">
-                    <Search posts={posts} activities={activities} activityTypes={activityTypes} />
-                </li> */}
+                <li className="nav-li">
+                    <a className="about" href="https://github.com/VoodooJellyfish"><FontAwesomeIcon icon={['fab', 'github']} size="lg"/></a>
+                </li>
+                {!authenticated ?
+                <></> : 
+                <li className="nav-li"><h4> Welcome back, {sessionUser?.username}</h4></li>
+                }
                 </ul>
             </nav>
 

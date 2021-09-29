@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Modal } from "../../context/Modal";
 import SignUpForm from "./SignUpForm";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default function SignUpModal() {
     const [showModal, setShowModal] = useState(false)
@@ -22,7 +23,7 @@ export default function SignUpModal() {
         <>
         {/* { */}
             {/* <> */}
-                <button className="formRequestButtons" onClick={handleClick}><i className="fas fa-user-plus fa-lg"></i>
+                <button className="formRequestButtons" onClick={handleClick}><FontAwesomeIcon icon={['fas', 'user-plus']} size="lg"/>
                 </button>
                 {showModal && <Modal onClose={() => setShowModal(false)}>
                     <SignUpForm closeModal={closeModal}/>

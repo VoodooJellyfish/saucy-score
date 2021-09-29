@@ -9,6 +9,7 @@ import CreateReviewFormModal from '../Reviews/ReviewFormModal';
 import SauceReviews from '../Reviews/SauceReviews';
 import { thunk_getSauceReviews } from '../../store/review';
 import "./Sauce.css"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export function findScore (reviews) {
         let num_of_reviews = reviews?.length
@@ -89,12 +90,12 @@ export default function Sauce () {
     
     let scoreArr = []
     for(let i=0; i < findScore(reviews); i++) {
-        scoreArr.push('fas fa-star')
+        scoreArr.push(['fas', 'star'])
     }
 
     let spiceArr = []
     for(let i=0; i < findSpice(reviews); i++) {
-        spiceArr.push('fas fa-pepper-hot')
+        spiceArr.push(['fas', 'pepper-hot'])
     }
     
 
@@ -112,13 +113,13 @@ export default function Sauce () {
                     <div id="icon-holder">
                         <div>
                             {scoreArr.map((el, i) => {
-                            return <span key={i}><i className={el}></i></span>
+                            return <span key={i}><FontAwesomeIcon icon={el}/></span>
                             })}
                         </div>
                         <div></div>
                         <div>
                             {spiceArr.map((el, i) => {
-                            return <span key={i}><i className={el}></i></span>
+                            return <span key={i}><FontAwesomeIcon icon={el}/></span>
                             })}
                         </div>
                     </div>

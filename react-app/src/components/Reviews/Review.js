@@ -6,6 +6,7 @@ import EditReviewFormModal from './EditReviewModal';
 import { DeleteReviewButton } from './DeleteReview';
 import { thunk_getReview } from '../../store/review';
 import "./Review.css"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default function Review({sauce, review, hasReviewed, setHasReviewed, previousReview}) {
     const dispatch=useDispatch()
@@ -28,13 +29,13 @@ export default function Review({sauce, review, hasReviewed, setHasReviewed, prev
     let score = review?.rating
     let scoreArr = []
     for(let i=0; i < +score; i++) {
-        scoreArr.push('fas fa-star')
+        scoreArr.push(['fas', 'star'])
     }
 
     let spice = review?.spice_level
     let spiceArr = []
     for(let i=0; i < +spice; i++) {
-        spiceArr.push('fas fa-pepper-hot')
+        spiceArr.push(['fas', 'pepper-hot'])
     }
 
     return (
@@ -53,13 +54,13 @@ export default function Review({sauce, review, hasReviewed, setHasReviewed, prev
                 <div className="icon-container">
                     <span id='star-container'>
                         {scoreArr.map((el, i) => {
-                        return <span key={i}><i className={el}></i></span>
+                        return <span key={i}><FontAwesomeIcon icon={el}/></span>
                         })}
                     </span>
                     {/* <span> </span> */}
                     <span id='spice-container'>
                         {spiceArr.map((el, i) => {
-                        return <span key={i}><i className={el}></i></span>
+                        return <span key={i}><FontAwesomeIcon icon={el}/></span>
                         })}
                     </span>
                 </div>

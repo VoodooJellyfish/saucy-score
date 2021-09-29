@@ -44,7 +44,7 @@ export default function UserProfile ({sauces, reviews}) {
                 {/* <h2>Your Sauces</h2> */}
                 <div className="user-container">
                     {/* <h2>Your Sauces</h2> */}
-                    {userSauces.map((sauce) => {
+                    {userSauces?.map((sauce) => {
                         return(
                             <div key={sauce?.id} className="user-card">
                                 <div className='btn-container'>
@@ -69,14 +69,14 @@ export default function UserProfile ({sauces, reviews}) {
                         )})}
                 </div>
                 <div className="user-review-container">
-                    {userReviews.map((review) => {
+                    {userReviews?.map((review) => {
                         return (
                             <div key={review?.id} className="user-review-card">
                                 {/* <div className='btn-container'>
                                     <EditSauceFormModal sauce={sauce} isSauceOwner={isSauceOwner}/>
                                     <DeleteSauceButton sauce={sauce}/>
                                 </div> */}
-                                <div id='review-container' className="image-container">
+                                <div key={review?.id} id='review-container' className="image-container">
                                     <Link className="img-link" to={`/sauces/${review?.sauce_id}`}>
                                         <img className="sauce-img" src={review?.sauce_image} alt={review?.sauce_name}></img>
                                     </Link>

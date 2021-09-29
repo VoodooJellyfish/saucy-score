@@ -18,7 +18,8 @@ class Sauce(db.Model):
     user = db.relationship('User', back_populates='sauces')
     collections = db.relationship(
         'Collection', secondary='collections_sauces', back_populates='sauces')
-    reviews = db.relationship('Review', back_populates="sauce")
+    reviews = db.relationship(
+        'Review', back_populates="sauce", cascade="all, delete-orphan")
 
     # methods
 

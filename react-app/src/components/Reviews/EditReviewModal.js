@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Modal } from "../../context/Modal";
 import EditReviewForm from "./EditReviewForm";
 import { useEffect } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 // const PostButtonStyle = styled.div`
 // .styled-button{
@@ -44,7 +45,7 @@ export default function EditReviewFormModal({sauce, review, ownsReview}) {
         {ownsReview ?
             <>
                 <button className="formRequestButtons modal-btn" onClick={handleClick}>
-                    <i className='fas fa-edit'></i>
+                    <FontAwesomeIcon icon={['fas', 'edit']}/>
                 </button>
                 {showEditReviewModal && <Modal onClose={() => setShowEditReviewModal(false)}>
                     <EditReviewForm closeEditReviewModal={closeEditReviewModal} sauce={sauce} review={review} />
