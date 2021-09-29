@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Modal } from "../../context/Modal";
 import CreateReviewForm from "./ReviewForm";
+import { useSelector } from "react-redux";
 
 // const PostButtonStyle = styled.div`
 // .styled-button{
@@ -26,6 +27,9 @@ import CreateReviewForm from "./ReviewForm";
 export default function CreateReviewFormModal({sauce, hasReviewed, setHasReviewed, setSpice, setScore, previousReview}) {
     const [showModal, setShowModal] = useState(false)
 
+    const sessionUser = useSelector(state => state.session?.user)
+    const authenticated = sessionUser !== null
+
     const handleClick = () => {
         setShowModal(true)
     }
@@ -41,7 +45,7 @@ export default function CreateReviewFormModal({sauce, hasReviewed, setHasReviewe
 
     return (
         <>
-        {!hasReviewed || !previousReview ?
+        { authenticated && (!hasReviewed || !previousReview)  ?
             <>
                 <button className="btn"  onClick={handleClick}>Create Review
                 </button>

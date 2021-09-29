@@ -49,20 +49,21 @@ const NavBar = ({ sessionUser, authenticated }) => {
                 <li className="nav-li">
                 
                         <NavLink className="nav-link" to='/sauces' exact={true} activeClassName='active'>
-                        View Sauces
+                        All Sauces
                         </NavLink>
                 </li>
                 <li className="nav-li">
-                    {/* <NavLink className="nav-link" to='/about' exact={true} activeClassName='active'>
-                    About Me
-                    </NavLink> */}
-                    <a href="https://www.linkedin.com/in/tanner-pedretti-5559141a2/">
-                        {/* <img src="https://content.linkedin.com/content/dam/me/brand/en-us/brand-home/logos/01-dsk-e5-v2.png/jcr:content/renditions/01-dsk-e5-v2-2x.png" alt={'linked In'}></img> */}
+                    <a className="about" href="https://www.linkedin.com/in/tanner-pedretti-5559141a2/">
+                        <i className="fab fa-linkedin fa-lg"></i>
                     </a>
                 </li>
-                {/* <li className="nav-li">
-                    <Search posts={posts} activities={activities} activityTypes={activityTypes} />
-                </li> */}
+                <li className="nav-li">
+                    <a className="about" href="https://github.com/VoodooJellyfish"><i className="fab fa-github fa-lg"></i></a>
+                </li>
+                {!authenticated ?
+                <></> : 
+                <li className="nav-li"><h4> Welcome back, {sessionUser?.username}</h4></li>
+                }
                 </ul>
             </nav>
 
