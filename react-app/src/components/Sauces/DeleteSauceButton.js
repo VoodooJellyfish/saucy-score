@@ -8,7 +8,7 @@ import { thunk_goDeleteSauce } from '../../store/sauce';
 export const DeleteSauceButton = ({sauce, closeModal}) => {
 
     const user = useSelector(state => state.session.user)
-    // const userId = user?.id
+    const userId = user?.id
 
     const dispatch = useDispatch();
     const history = useHistory();
@@ -16,7 +16,7 @@ export const DeleteSauceButton = ({sauce, closeModal}) => {
     const handleDelete = async (e) => {
         e.preventDefault()
         await dispatch(thunk_goDeleteSauce(sauce?.id))
-        history.push(`/sauces/${sauce?.id}`)
+        history.push(`/users/${userId}`)
     }
 
     return (
