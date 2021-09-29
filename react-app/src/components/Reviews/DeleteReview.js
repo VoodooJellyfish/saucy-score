@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { thunk_goDeleteReview } from '../../store/review';
 
@@ -23,7 +24,7 @@ export const DeleteReviewButton = ({review, ownsReview, setHasReviewed, previous
         <>
         {ownsReview ?
             <form onSubmit={handleDelete}>
-                <button className="formRequestButtons modal-btn" id="del-review" type="submit"><i className='fas fa-trash-alt'></i></button>
+                <button className="formRequestButtons modal-btn" id="del-review" type="submit"><FontAwesomeIcon icon={['fas', 'trash-alt']}/></button>
             </form> : <> </>}
         </>
     )

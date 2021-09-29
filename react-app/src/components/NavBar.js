@@ -6,6 +6,7 @@ import DemoButton from './auth/Demo';
 import LoginFormModal from './auth/LoginModal';
 import "./Navbar.css"
 import SignUpModal from './auth/SignUpModal';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
 const NavBar = ({ sessionUser, authenticated }) => {
@@ -19,7 +20,8 @@ const NavBar = ({ sessionUser, authenticated }) => {
                     <>
                         <li className="nav-li">
                             <NavLink className="nav-link" to='/' exact={true} activeClassName='active'>
-                            <i className="fas fa-home fa-lg"></i>
+                            {/* <i className="fas fa-home fa-lg"></i> */}
+                            <FontAwesomeIcon icon={['fas', 'home']} size="lg"/>
                             </NavLink>
                         </li>
                         <li className="nav-li">
@@ -38,7 +40,7 @@ const NavBar = ({ sessionUser, authenticated }) => {
                     <>
                     <li className="nav-li">
                         <NavLink className="nav-link" to={`/users/${sessionUser.id}`} exact={true} activeClassName='active'>
-                        <i className="fas fa-home fa-lg"></i>
+                        <FontAwesomeIcon icon={['fas', 'home']} size="lg"/>
                         </NavLink>
                     </li>
                     <li className="nav-li">
@@ -54,11 +56,11 @@ const NavBar = ({ sessionUser, authenticated }) => {
                 </li>
                 <li className="nav-li">
                     <a className="about" href="https://www.linkedin.com/in/tanner-pedretti-5559141a2/">
-                        <i className="fab fa-linkedin fa-lg"></i>
+                        <FontAwesomeIcon icon={['fab', 'linkedin']} size="lg"/>
                     </a>
                 </li>
                 <li className="nav-li">
-                    <a className="about" href="https://github.com/VoodooJellyfish"><i className="fab fa-github fa-lg"></i></a>
+                    <a className="about" href="https://github.com/VoodooJellyfish"><FontAwesomeIcon icon={['fab', 'github']} size="lg"/></a>
                 </li>
                 {!authenticated ?
                 <></> : 
