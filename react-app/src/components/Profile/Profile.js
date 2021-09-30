@@ -7,8 +7,9 @@ import { thunk_getUserSauces } from "../../store/sauce"
 import EditSauceFormModal from "../Sauces/EditSauceModal"
 import { DeleteSauceButton } from "../Sauces/DeleteSauceButton"
 import CreateSauceFormModal from "../Sauces/CreateSauceModal"
+import "../Sauces/Saucelist.css"
 
-export default function UserProfile ({}) {
+export default function UserProfile () {
     const sessionUser = useSelector(state => state.session?.user)
     const userId = sessionUser?.id
 
@@ -25,11 +26,11 @@ export default function UserProfile ({}) {
 
     console.log( "USERINFO", userReviews, userSauces)
 
-    useEffect(() => {
-        dispatch(thunk_getUserSauces(userId))
-        dispatch(thunk_getUserReviews(userId))
+    // useEffect(() => {
+    //     dispatch(thunk_getUserSauces(userId))
+    //     dispatch(thunk_getUserReviews(userId))
 
-    },[userId, dispatch])
+    // },[userId, dispatch])
 
     let isSauceOwner = true
 
@@ -110,7 +111,7 @@ export default function UserProfile ({}) {
                 </div> 
                 : 
                 <div id='non-parent'>
-                    <div className='non-header'> You have not made any reviews yet. Click <Link to='/sauces'>here</Link> to go to sauces page. </div>
+                    <div className='non-header'> You have not made any reviews yet. Click <Link id='redirect-link' to='/sauces'>here</Link> to go to sauces page. </div>
                 </div>
             }
         </div>

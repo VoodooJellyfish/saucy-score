@@ -231,3 +231,12 @@
   left: 50%;
   margin-top: 20px;
 }
+
+#redirect-link {
+  color: #ffd12d;
+  text-decoration: none;
+}
+
+#redirect-link:hover {
+  font-weight: bold;
+}
