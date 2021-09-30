@@ -45,14 +45,22 @@ export default function Sauce () {
 
     const saucesSlice = useSelector(state => state.sauces)
     const sauces = Object.values(saucesSlice)
+    const sauce = sauces?.find(sauce => sauce?.id === +sauceId)
     const sessionUser = useSelector(state => state.session.user);
+   
+    const reviewSlice = useSelector(state => state.reviews);
+    const reviews = Object.values(reviewSlice)
+    const sauceReviews = reviews.filter((review) => review?.sauce_id === sauce?.id)
+
+
     const session = useSelector(state => state?.session)
     const userId = sessionUser?.id
     const authenticated = sessionUser !== null
-    const sauce = sauces?.find(sauce => sauce?.id === +sauceId)
-    const reviews = sauce?.reviews
+    
 
-    const previousReview = reviews?.find( review => review?.user_id === userId)
+    // const reviews = sauce?.reviews
+
+    const previousReview = sauceReviews?.find( review => review?.user_id === userId)
 
     const isReview = previousReview ? true:false
     console.log("PREVIOUSREVIEW", previousReview)
@@ -60,6 +68,7 @@ export default function Sauce () {
     const [hasReviewed, setHasReviewed] = useState(isReview)
     const [score, setScore] = useState(0)
     const [spice, setSpice] = useState(0)
+    
 
     
 
@@ -77,25 +86,25 @@ export default function Sauce () {
     }, [reviews, isReview])
 
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        return dispatch(thunk_getSauceReviews(sauce?.id))
+    //     return dispatch(thunk_getSauceReviews(sauce?.id))
 
-    },[sauce, dispatch])
+    // },[sauce, dispatch])
 
 
 
-    console.log("SCORE", findScore(reviews))
-    console.log("SPICE", findSpice(reviews))
+    console.log("SCORE", findScore(sauceReviews))
+    console.log("SPICE", findSpice(sauceReviews))
 
     
     let scoreArr = []
-    for(let i=0; i < findScore(reviews); i++) {
+    for(let i=0; i < findScore(sauceReviews); i++) {
         scoreArr.push(['fas', 'star'])
     }
 
     let spiceArr = []
-    for(let i=0; i < findSpice(reviews); i++) {
+    for(let i=0; i < findSpice(sauceReviews); i++) {
         spiceArr.push(['fas', 'pepper-hot'])
     }
     

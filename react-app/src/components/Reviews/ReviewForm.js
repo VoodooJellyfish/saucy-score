@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router';
 import { thunk_createNewReview } from '../../store/review';
 import { findScore, findSpice } from '../Sauces/SauceDetail';
+import { thunk_getSauceReviews } from '../../store/review';
 
 const CreateReviewForm = ({sauce, closeModal, hasReviewed, setHasReviewed, previousReview, setScore, setSpice}) => {
 
@@ -30,7 +31,7 @@ const CreateReviewForm = ({sauce, closeModal, hasReviewed, setHasReviewed, previ
         return errors
     }
 
-    const createReview = e => {
+    const createReview =  async e => {
         e.preventDefault()
         let validationErrors = errorValidation()
         if (validationErrors.length > 0) {
@@ -44,7 +45,8 @@ const CreateReviewForm = ({sauce, closeModal, hasReviewed, setHasReviewed, previ
             sauce_id: +sauce?.id
         }
 
-        dispatch(thunk_createNewReview(payload))
+        await dispatch(thunk_createNewReview(payload))
+        // await dispatch(thunk_getSauceReviews(payload?.sauce_id))
         setHasReviewed(!hasReviewed)
         setErrors([])
         closeModal()

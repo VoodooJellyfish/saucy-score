@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
+import { thunk_getSauceReviews } from '../../store/review';
 
 import { thunk_editReview, thunk_goDeleteReview } from '../../store/review';
 
@@ -61,6 +62,7 @@ const EditReviewForm = ({ sauce, review, closeEditReviewModal }) => {
         };
         console.log("PAYLOAD:", payload)
         await dispatch(thunk_editReview(payload));
+        // await dispatch(thunk_getSauceReviews(payload?.sauce_id))
         setErrors([])
         closeEditReviewModal()
         history.push(`/sauces/${payload?.sauce_id}`)
