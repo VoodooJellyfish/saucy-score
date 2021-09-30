@@ -73,3 +73,8 @@
   position: relative;
   padding: 0px 5px;
 }
+
+.detail-image {
+  max-width: 300px;
+  max-height: 400px;
+}
