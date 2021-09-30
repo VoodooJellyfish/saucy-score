@@ -65,3 +65,7 @@
 .about:hover {
   color: red;
 }
+
+nav {
+  width: 100%;
+}

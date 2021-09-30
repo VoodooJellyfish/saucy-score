@@ -7,6 +7,7 @@ import LoginFormModal from './auth/LoginModal';
 import "./Navbar.css"
 import SignUpModal from './auth/SignUpModal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Search from './Search/Search';
 
 
 const NavBar = ({ sessionUser, authenticated }) => {
@@ -53,6 +54,7 @@ const NavBar = ({ sessionUser, authenticated }) => {
                         <NavLink className="nav-link" to='/sauces' exact={true} activeClassName='active'>
                         All Sauces
                         </NavLink>
+                        
                 </li>
                 <li className="nav-li">
                     <a className="about" href="https://www.linkedin.com/in/tanner-pedretti-5559141a2/">
@@ -62,10 +64,14 @@ const NavBar = ({ sessionUser, authenticated }) => {
                 <li className="nav-li">
                     <a className="about" href="https://github.com/VoodooJellyfish"><FontAwesomeIcon icon={['fab', 'github']} size="lg"/></a>
                 </li>
+               
                 {!authenticated ?
                 <></> : 
                 <li className="nav-li"><h4> Welcome back, {sessionUser?.username}</h4></li>
                 }
+                 <li>
+                    <Search></Search>
+                </li>
                 </ul>
             </nav>
 

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import Search from './components/Search/Search';
 
 import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
@@ -66,6 +67,9 @@ function App() {
         </Route>
       <Route path='/' exact={true} >
           <Home sessionUser={sessionUser} authenticated={authenticated} />
+        </Route>
+        <Route path='/search' exact={true}>
+          <Search />
         </Route>
          <Route>
           <PageNotFound />
