@@ -120,14 +120,16 @@ export default function Sauce () {
                 </div>
                 <div className='text-container'>
                    <div className='list-btn-container'>
-                        <div>
+                       <div id="sauce-name">{sauce?.name}</div>
+                        <div id='right'>
                             <EditSauceFormModal sauce={sauce} isSauceOwner={isSauceOwner}/>
                         </div>
-                        <div>
+                        <div id='right'>
                             <DeleteSauceButton sauce={sauce} isSauceOwner={isSauceOwner}/>
                         </div>
+                        
                     </div>
-                        <div id="sauce-name">{sauce?.name}</div>
+                        
                     <div id="icon-holder">
                         <div>
                             {scoreArr.map((el, i) => {
