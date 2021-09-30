@@ -45,7 +45,7 @@ export default function CreateReviewFormModal({sauce, hasReviewed, setHasReviewe
 
     return (
         <>
-        { authenticated && (!hasReviewed)  ?
+        { authenticated && (!hasReviewed || !previousReview)  ?
             <>
                 <button className="btn"  onClick={handleClick}>Create Review
                 </button>
