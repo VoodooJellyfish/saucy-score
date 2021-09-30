@@ -6,10 +6,17 @@ import { thunk_getUserReviews } from "../../store/review"
 import { thunk_getUserSauces } from "../../store/sauce"
 import EditSauceFormModal from "../Sauces/EditSauceModal"
 import { DeleteSauceButton } from "../Sauces/DeleteSauceButton"
+import CreateSauceFormModal from "../Sauces/CreateSauceModal"
 
-export default function UserProfile ({sauces, reviews}) {
+export default function UserProfile ({}) {
     const sessionUser = useSelector(state => state.session?.user)
     const userId = sessionUser?.id
+
+    const sauceSlice = useSelector(state => state.sauces)
+    const reviewsSlice = useSelector(state => state.reviews)
+
+    const sauces = Object.values(sauceSlice)
+    const reviews = Object.values(reviewsSlice)
 
     const dispatch = useDispatch()
 
@@ -29,9 +36,9 @@ export default function UserProfile ({sauces, reviews}) {
 
     return (
         <div>
-            <div className="header2">
+            {/* <div className="header2">
                 Welcome back, <span id="intro-name">{sessionUser?.username}</span>
-            </div>
+            </div> */}
             <div id='parent'>
                 <div className="header">
                     Submitted Sauces
@@ -42,6 +49,7 @@ export default function UserProfile ({sauces, reviews}) {
             </div>
             <div className='user-page-container'>
                 {/* <h2>Your Sauces</h2> */}
+            {userSauces.length > 0 ?
                 <div className="user-container">
                     {/* <h2>Your Sauces</h2> */}
                     {userSauces?.map((sauce) => {
@@ -67,7 +75,16 @@ export default function UserProfile ({sauces, reviews}) {
                                 </div>
                             </div>
                         )})}
+                </div> 
+                
+            :   <div id="non-parent">
+                    <div className=" non-header"> 
+                        You dont have any sauces yet! Submit one to get Started
+                    </div>
+                    <div id='submit-sauce-user'><CreateSauceFormModal/> </div>
                 </div>
+            }
+            {userReviews.length > 0 ?
                 <div className="user-review-container">
                     {userReviews?.map((review) => {
                         return (
@@ -85,17 +102,18 @@ export default function UserProfile ({sauces, reviews}) {
                                     <Link id='name-parent' to={`/sauces/${review?.sauce_id}`}>
                                         <p id='sauce-name'>{review?.sauce_name}</p>
                                     </Link>
-                                    {/* <div className="description-container">
-                                        <p id="sauce-description">{sauce?.description}</p>
-                                    </div>
-                                    <p id="username">Submitted By: {sauce?.username} on {sauce?.created_at}</p> */}
                                 </div>
                             </div>
 
                         
                     )})}
+                </div> 
+                : 
+                <div id='non-parent'>
+                    <div className='non-header'> You have not made any reviews yet. Click <Link to='/sauces'>here</Link> to go to sauces page. </div>
                 </div>
-            </div>
+            }
+        </div>
     </div> 
     )
 
