@@ -225,3 +225,9 @@
   position: relative;
   top: 60px;
 }
+
+#submit-btn {
+  position: relative;
+  left: 50%;
+  margin-top: 20px;
+}

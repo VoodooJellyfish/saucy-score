@@ -32,7 +32,7 @@
 }
 
 .text-container > div {
-  padding: 10px;
+  padding: 7px;
 }
 
 .sauce-reviews {
@@ -56,4 +56,20 @@
 #icon-holder > div {
   margin-left: 20px;
   margin-right: 20px;
+}
+
+/* .sauce-title-row {
+  display: flex;
+} */
+
+.list-btn-container {
+  display: flex;
+  position: relative;
+  left: 45%;
+  bottom: 3px;
+}
+
+.list-btn-container > div {
+  position: relative;
+  padding: 0px 5px;
 }

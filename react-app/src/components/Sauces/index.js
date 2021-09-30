@@ -17,7 +17,9 @@ export default function SauceList({ sauces }) {
     return (
         <div className="page-container">
             {authenticated ? 
+            <div id="submit-btn">
                 <CreateSauceFormModal/>
+            </div>
             : <></> }
             <div className='sauces-container'>
                 {sauces.map(sauce => {
