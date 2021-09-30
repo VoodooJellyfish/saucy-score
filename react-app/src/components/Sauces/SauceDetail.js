@@ -80,8 +80,8 @@ export default function Sauce () {
 
 
     useEffect (() => {
-        setScore(findScore(reviews))
-        setSpice(findSpice(reviews))
+        // setScore(findScore(reviews))
+        // setSpice(findSpice(reviews))
         setHasReviewed(isReview)
     }, [reviews, isReview])
 
