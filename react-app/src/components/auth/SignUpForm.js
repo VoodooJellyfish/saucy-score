@@ -16,14 +16,18 @@ const SignUpForm = ({closeModal}) => {
 
   const onSignUp = async (e) => {
     e.preventDefault();
+    if (password!== repeatPassword) {
+        setErrors(["Passwords must match."])
+    }
     if (password === repeatPassword) {
       const data = await dispatch(signUp(username, email, password));
       if (data) {
         setErrors(data)
+      } else {
+        history.push(`/users/${user?.id}`)
       }
-    } else if (password !== repeatPassword) {
-        setErrors(["Passwords must match."])
-    }
+    } 
+        
   };
 
   const updateUsername = (e) => {
@@ -43,8 +47,9 @@ const SignUpForm = ({closeModal}) => {
   };
 
   if (user) {
-    return <Redirect to='/' />;
-  }
+    return history.push(`/users/${user?.id}`)
+  };
+  
 
   return (
     <form className='edit-sauce-form' onSubmit={onSignUp}>

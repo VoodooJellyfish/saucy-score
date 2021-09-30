@@ -15,6 +15,7 @@ import { authenticate } from './store/session';
 import {thunk_getSauces} from './store/sauce'
 import { thunk_getReviews } from './store/review';
 import UserProfile from './components/Profile/Profile';
+import PageNotFound from './components/404';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -65,6 +66,9 @@ function App() {
         </Route>
       <Route path='/' exact={true} >
           <Home sessionUser={sessionUser} authenticated={authenticated} />
+        </Route>
+         <Route>
+          <PageNotFound />
         </Route>
       </Switch>
     </BrowserRouter>

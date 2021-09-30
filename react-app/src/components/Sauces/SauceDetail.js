@@ -10,6 +10,7 @@ import SauceReviews from '../Reviews/SauceReviews';
 import { thunk_getSauceReviews } from '../../store/review';
 import "./Sauce.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { DeleteSauceButton } from './DeleteSauceButton';
 
 export function findScore (reviews) {
         let num_of_reviews = reviews?.length
@@ -109,7 +110,15 @@ export default function Sauce () {
                     <img className= "detail-image" src={sauce?.image_url} alt={sauce?.name}></img>
                 </div>
                 <div className='text-container'>
-                    <div id="sauce-name">{sauce?.name}</div>
+                   <div className='list-btn-container'>
+                        <div>
+                            <EditSauceFormModal sauce={sauce} isSauceOwner={isSauceOwner}/>
+                        </div>
+                        <div>
+                            <DeleteSauceButton sauce={sauce} isSauceOwner={isSauceOwner}/>
+                        </div>
+                    </div>
+                        <div id="sauce-name">{sauce?.name}</div>
                     <div id="icon-holder">
                         <div>
                             {scoreArr.map((el, i) => {
@@ -127,9 +136,7 @@ export default function Sauce () {
                     <div id="detail-username">
                         Submitted By: {sauce?.username} on {sauce?.created_at}
                     </div>
-                    <div>
-                        <EditSauceFormModal sauce={sauce} isSauceOwner={isSauceOwner}/>
-                    </div>
+                    
                 </div>
                 
             </div>

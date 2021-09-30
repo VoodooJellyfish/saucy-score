@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 // import { thunk_goDeleteReview } from '../../store/review';
 
-export const DeleteSauceButton = ({sauce, closeModal}) => {
+export const DeleteSauceButton = ({sauce, closeModal, isSauceOwner}) => {
 
     const user = useSelector(state => state.session.user)
     const userId = user?.id
@@ -21,12 +21,13 @@ export const DeleteSauceButton = ({sauce, closeModal}) => {
     }
 
     return (
-        <>
-        <div className='form-group'>
-                <form onSubmit={handleDelete}>
-                    <button className="formRequestButtons" id="del" type="submit"><FontAwesomeIcon icon={['fas', 'trash-alt']}/></button>
-                </form>
-            </div>
+        <> 
+        {isSauceOwner ?
+            <div className='form-group'>
+                    <form onSubmit={handleDelete}>
+                        <button className="formRequestButtons" id="del" type="submit"><FontAwesomeIcon icon={['fas', 'trash-alt']}/></button>
+                    </form>
+                </div> : <> </>}
         </>
     )
 }

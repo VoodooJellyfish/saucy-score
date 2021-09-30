@@ -94,9 +94,9 @@ const EditReviewForm = ({ sauce, review, closeEditReviewModal }) => {
                 </div>
                 <button className="plus-btn" type='submit'>Submit Edit</button>
             </form>
-            <form onSubmit={handleDelete}>
+            {/* <form onSubmit={handleDelete}>
                 <button className="formRequestButtons" id="del-comment" type="submit">Delete Review</button>
-            </form>
+            </form> */}
         </div>
     );
 };
