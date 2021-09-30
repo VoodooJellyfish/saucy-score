@@ -13,11 +13,11 @@ export default function SauceReviews({sauce, hasReviewed, setHasReviewed}) {
 
     const sauceReviews = reviews?.filter((review) => review?.sauce_id === sauce?.id)
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        return dispatch(thunk_getSauceReviews(sauce?.id))
+    //     return dispatch(thunk_getSauceReviews(sauce?.id))
 
-    },[sauce, dispatch])
+    // },[sauce, dispatch])
 
     return (
         <>
