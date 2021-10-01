@@ -1,5 +1,5 @@
 .detail-page {
-  margin-top: 120px;
+  margin-top: 200px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   /* border: 1px solid black; */
@@ -64,15 +64,18 @@
 
 .list-btn-container {
   display: flex;
-  position: relative;
+  /* position: relative;
   left: 45%;
-  bottom: 3px;
+  bottom: 3px; */
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
 .list-btn-container > div {
   position: relative;
+  left: 10%;
   padding: 0px 5px;
-  right: 80%;
 }
 
 .detail-image {
