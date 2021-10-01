@@ -7,6 +7,7 @@ import { thunk_getUserSauces } from "../../store/sauce"
 import EditSauceFormModal from "../Sauces/EditSauceModal"
 import { DeleteSauceButton } from "../Sauces/DeleteSauceButton"
 import CreateSauceFormModal from "../Sauces/CreateSauceModal"
+import { useState } from "react"
 import "../Sauces/Saucelist.css"
 
 export default function UserProfile () {
@@ -26,11 +27,10 @@ export default function UserProfile () {
 
     console.log( "USERINFO", userReviews, userSauces)
 
-    // useEffect(() => {
-    //     dispatch(thunk_getUserSauces(userId))
-    //     dispatch(thunk_getUserReviews(userId))
+    const [update, setUpdate] = useState(false)
 
-    // },[userId, dispatch])
+    useEffect(() => {
+    },[update])
 
     let isSauceOwner = true
 
@@ -43,6 +43,7 @@ export default function UserProfile () {
             <div id='parent'>
                 <div className="header">
                     Submitted Sauces
+                    {/* <div id="profile-create"><CreateSauceFormModal/></div> */}
                 </div>
                 <div className='header'>
                     Reviewed Sauces 
@@ -58,7 +59,7 @@ export default function UserProfile () {
                             <div key={sauce?.id} className="user-card">
                                 <div className='btn-container'>
                                     <EditSauceFormModal sauce={sauce} isSauceOwner={isSauceOwner}/>
-                                    <DeleteSauceButton sauce={sauce} isSauceOwner={isSauceOwner}/>
+                                    <DeleteSauceButton sauce={sauce} isSauceOwner={isSauceOwner} update={update} setUpdate={setUpdate}/>
                                 </div>
                                 <div className="image-container">
                                     <Link className="img-link" to={`/sauces/${sauce?.id}`}>

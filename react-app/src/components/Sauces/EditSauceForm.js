@@ -75,7 +75,7 @@ const EditSauceForm = ({ sauce, closeModal }) => {
                 <form className='edit-sauce-form' onSubmit={handleSubmit}>
                     <div className='form-group'>
                         {errors.map((error, ind) => (
-                            <div key={ind}>{error}</div>
+                            <div className='errors' key={ind}>{error}</div>
                         ))}
                     </div>
                     <div className='form-group'>

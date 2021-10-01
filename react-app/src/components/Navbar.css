@@ -31,6 +31,7 @@
 .nav-li {
   margin-left: 40px;
   margin-right: 40px;
+  pading-top: 30px;
 }
 
 .nav-link {
@@ -68,6 +69,7 @@
 .about {
   text-decoration: none;
   color: black;
+  padding-top: 50px;
 }
 
 .about:hover {
@@ -90,4 +92,8 @@
 .leftli {
   padding-top: 30px;
   padding-left: 40px;
+}
+
+#del {
+  cursor: pointer;
 }

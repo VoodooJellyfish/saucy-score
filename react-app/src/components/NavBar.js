@@ -49,18 +49,18 @@ const NavBar = ({ sessionUser, authenticated }) => {
                     </div> : 
                     <div className="right">
                         <div className="nav-li"><h4> Welcome back, {sessionUser?.username}</h4></div>
-                        <div className="auth-group">
+                        <div className="nav-li">
                             <LogoutButton />
                         </div>
                     </div>}
-                {/* <li className="nav-li">
-                    <a className="about" href="https://www.linkedin.com/in/tanner-pedretti-5559141a2/">
+                <div className='left leftli'>
+                    <a className="about" href="https://www.linkedin.com/in/tanner-pedretti-5559141a2/"  rel="noreferrer" target="_blank">
                         <FontAwesomeIcon icon={['fab', 'linkedin']} size="lg"/>
                     </a>
-                </li>
-                <li className="nav-li">
-                    <a className="about" href="https://github.com/VoodooJellyfish"><FontAwesomeIcon icon={['fab', 'github']} size="lg"/></a>
-                </li> */}
+                </div>
+                <div className='left leftli'>
+                    <a className="about" href="https://github.com/VoodooJellyfish" rel="noreferrer" target="_blank"><FontAwesomeIcon icon={['fab', 'github']} size="lg"/></a>
+                </div>
             </div>
         );
     }
