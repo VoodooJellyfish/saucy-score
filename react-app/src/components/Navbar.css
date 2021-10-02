@@ -10,19 +10,28 @@
   left: 0;
   right: 0;
   height: 80px;
-  display: flex;
-  align-items: center;
+  /* display: flex;
+  align-items: center; */
   box-shadow: 0 0 25px 0 black;
   width: 100%;
+  z-index: 20;
 }
 
 .nav-container * {
   display: inline;
+  align-items: center;
 }
+/* .nav-header {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  width: 100%;
+} */
 
 .nav-li {
-  margin: 30px;
-  /* font-size: 16px; */
+  margin-left: 40px;
+  margin-right: 40px;
+  pading-top: 30px;
 }
 
 .nav-link {
@@ -60,8 +69,31 @@
 .about {
   text-decoration: none;
   color: black;
+  padding-top: 50px;
 }
 
 .about:hover {
   color: red;
+}
+
+/* .auth-group {
+  position: relative;
+  left: 70%;
+} */
+.right {
+  float: right;
+  padding-top: 30px;
+}
+
+.left {
+  float: left;
+}
+
+.leftli {
+  padding-top: 30px;
+  padding-left: 40px;
+}
+
+#del {
+  cursor: pointer;
 }
