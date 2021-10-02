@@ -14,7 +14,7 @@ const updateReview = (review) => ({
     review
 })
 
-const deleteReview = (reviewId) => ({
+export const deleteReview = (reviewId) => ({
     type: DELETE_REVIEW,
     reviewId
 })

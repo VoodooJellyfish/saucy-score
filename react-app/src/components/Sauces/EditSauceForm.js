@@ -65,7 +65,7 @@ const EditSauceForm = ({ sauce, closeModal }) => {
 
     const handleDelete = async (e) => {
         e.preventDefault()
-        await dispatch(thunk_goDeleteSauce(sauce?.id))
+        await dispatch(thunk_goDeleteSauce(sauce))
         history.push(`/sauces/${sauce?.id}`)
     }
 

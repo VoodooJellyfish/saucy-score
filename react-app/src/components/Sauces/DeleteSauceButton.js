@@ -17,10 +17,10 @@ export const DeleteSauceButton = ({sauce, closeModal, isSauceOwner, update, setU
 
     const handleDelete = async (e) => {
         e.preventDefault()
-        await dispatch(thunk_goDeleteSauce(sauce?.id))
+        await dispatch(thunk_goDeleteSauce(sauce))
         // setUpdate(update => !update)
         
-        console.log("updated", update)
+        // console.log("updated", update)
         history.push(`/users/${userId}`)
         window.location.reload()
     }
