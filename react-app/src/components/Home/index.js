@@ -1,14 +1,14 @@
 import React from "react";
 import Splash from "./Splash";
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { useState } from "react";
+// import { useEffect } from "react";
+// import { useDispatch } from "react-redux";
+// import { useState } from "react";
 // import "./Home.css"
 
 
 function Home({ sessionUser, authenticated }) {
 
-    const dispatch = useDispatch()
+    // const dispatch = useDispatch()
     // let [activePosts, setActivePosts] = useState()
 
     // useEffect(() => {

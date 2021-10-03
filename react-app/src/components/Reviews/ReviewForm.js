@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router';
+// import { useParams } from 'react-router';
 import { thunk_createNewReview } from '../../store/review';
-import { findScore, findSpice } from '../Sauces/SauceDetail';
-import { thunk_getSauceReviews } from '../../store/review';
+// import { findScore, findSpice } from '../Sauces/SauceDetail';
+// import { thunk_getSauceReviews } from '../../store/review';
 
 const CreateReviewForm = ({sauce, closeModal, hasReviewed, setHasReviewed, previousReview, setScore, setSpice}) => {
 

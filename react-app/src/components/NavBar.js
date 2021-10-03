@@ -30,8 +30,8 @@ const NavBar = ({ sessionUser, authenticated }) => {
                     </div>  
                 }
                 <div className='left leftli'>
-                        <NavLink className="nav-link" to='/sauces' exact={true} activeClassName='active'>
-                        Sauces
+                        <NavLink id="saucy-link" className="nav-link" to='/sauces' exact={true} activeClassName='active'>
+                        Sauces <FontAwesomeIcon icon={['fas', 'fire']}/>
                         </NavLink>
                 </div>
                 { !authenticated ?
@@ -53,14 +53,14 @@ const NavBar = ({ sessionUser, authenticated }) => {
                             <LogoutButton />
                         </div>
                     </div>}
-                <div className='left leftli'>
+                {/* <div className='left leftli'>
                     <a className="about" href="https://www.linkedin.com/in/tanner-pedretti-5559141a2/"  rel="noreferrer" target="_blank">
                         <FontAwesomeIcon icon={['fab', 'linkedin']} size="lg"/>
                     </a>
                 </div>
                 <div className='left leftli'>
                     <a className="about" href="https://github.com/VoodooJellyfish" rel="noreferrer" target="_blank"><FontAwesomeIcon icon={['fab', 'github']} size="lg"/></a>
-                </div>
+                </div> */}
             </div>
         );
     }

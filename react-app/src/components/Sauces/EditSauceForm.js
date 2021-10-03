@@ -63,11 +63,11 @@ const EditSauceForm = ({ sauce, closeModal }) => {
         // history.push(`/sauces/${payload?.id}`)
     };
 
-    const handleDelete = async (e) => {
-        e.preventDefault()
-        await dispatch(thunk_goDeleteSauce(sauce?.id))
-        history.push(`/sauces/${sauce?.id}`)
-    }
+    // const handleDelete = async (e) => {
+    //     e.preventDefault()
+    //     await dispatch(thunk_goDeleteSauce(sauce))
+    //     history.push(`/sauces/${sauce?.id}`)
+    // }
 
     return (
         <div className="sauce-form">

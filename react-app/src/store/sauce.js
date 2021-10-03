@@ -1,8 +1,13 @@
+// import { thunk_goDeleteReview } from "./review"
+import { deleteReview } from "./review"
+
 const LOAD_SAUCES= "posts/LOAD_SAUCES"
 const UPDATE_SAUCE = 'users/UPDATE_SAUCE'
 const DELETE_SAUCE = 'posts/DELETE_SAUCE'
-const USER_SAUCES = 'posts/USER_SAUCES'
-const UPDATE_USER = 'post/UPDATE_USER'
+// const USER_SAUCES = 'posts/USER_SAUCES'
+// const UPDATE_USER = 'post/UPDATE_USER'
+
+
 
 const loadSauces = (sauces) => ({
     type: LOAD_SAUCES,
@@ -25,9 +30,9 @@ const updateSauce= (sauce) => ({
     sauce
 })
 
-const deleteSauce = (sauceId) => ({
+const deleteSauce = (sauce) => ({
     type: DELETE_SAUCE,
-    sauceId
+    sauce
 })
 
 export const thunk_getSauces = () => async (dispatch) => {
@@ -79,13 +84,14 @@ export const thunk_createNewSauce = (data) => async (dispatch) => {
     }
 }
 
-export const thunk_goDeleteSauce = (sauceId) => async (dispatch) => {
-    const res = await fetch(`/api/sauces/${sauceId}`, {
+export const thunk_goDeleteSauce = (sauce) => async (dispatch) => {
+    const res = await fetch(`/api/sauces/${sauce.id}`, {
         method: 'DELETE',
     })
 
     if (res.ok) {
-        dispatch(deleteSauce(sauceId))
+        sauce.reviews.forEach((review) => dispatch(deleteReview(review.id)))
+        dispatch(deleteSauce(sauce))
     }
 }
 
@@ -124,7 +130,7 @@ const sauceReducer = (state = initialState, action) => {
         case DELETE_SAUCE: {
             let newState = { ...state }
 
-            delete newState[action.sauceId]
+            delete newState[action.sauce.id]
 
             return { ...newState }
         }

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router';
+// import { useParams } from 'react-router';
 import { thunk_createNewSauce } from '../../store/sauce';
 
 

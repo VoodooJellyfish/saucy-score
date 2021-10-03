@@ -1,12 +1,12 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import { useHistory } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { thunk_getSauceReviews } from '../../store/review';
+// import { thunk_getSauceReviews } from '../../store/review';
 
 import { thunk_goDeleteReview } from '../../store/review';
 
-export const DeleteReviewButton = ({review, ownsReview, setHasReviewed, previousReview}) => {
+export const DeleteReviewButton = ({review, ownsReview, setHasReviewed}) => {
 
     const user = useSelector(state => state.session.user)
     const userId = user?.id

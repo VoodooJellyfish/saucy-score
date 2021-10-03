@@ -17,3 +17,19 @@
   padding-top: 130px;
   text-align: center;
 }
+
+#splash-list {
+  color: white;
+  text-align: center;
+  list-style: none;
+  padding: 50px;
+}
+
+#splash-list li {
+  padding: 20px;
+  font-size: large;
+}
+
+#splash-list span {
+  color: #ffd12d;
+}

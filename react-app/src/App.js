@@ -5,9 +5,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar';
-import ProtectedRoute from './components/auth/ProtectedRoute';
+// import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
-import User from './components/User';
+// import User from './components/User';
 import SauceList from './components/Sauces';
 import Sauce from './components/Sauces/SauceDetail';
 import Home from './components/Home';
@@ -16,6 +16,7 @@ import {thunk_getSauces} from './store/sauce'
 import { thunk_getReviews } from './store/review';
 import UserProfile from './components/Profile/Profile';
 import PageNotFound from './components/404';
+import Footer from './components/Footer';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -71,6 +72,7 @@ function App() {
           <PageNotFound />
         </Route>
       </Switch>
+      <Footer/>
     </BrowserRouter>
   );
 }

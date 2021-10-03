@@ -1,13 +1,13 @@
 import { useParams, useHistory } from 'react-router';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Modal } from "../../context/Modal";
-import { thunk_goDeleteSauce, thunk_editSauce } from '../../store/sauce';
+// import { Modal } from "../../context/Modal";
+// import { thunk_goDeleteSauce, thunk_editSauce } from '../../store/sauce';
 import EditSauceFormModal from './EditSauceModal';
-import Review from '../Reviews/Review';
+// import Review from '../Reviews/Review';
 import CreateReviewFormModal from '../Reviews/ReviewFormModal';
 import SauceReviews from '../Reviews/SauceReviews';
-import { thunk_getSauceReviews } from '../../store/review';
+// import { thunk_getSauceReviews } from '../../store/review';
 import "./Sauce.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { DeleteSauceButton } from './DeleteSauceButton';
@@ -39,9 +39,9 @@ export function findScore (reviews) {
 
 
 export default function Sauce () {
-    const history = useHistory()
+    // const history = useHistory()
     const { sauceId } = useParams();
-    const dispatch = useDispatch()
+    // const dispatch = useDispatch()
 
     const saucesSlice = useSelector(state => state.sauces)
     const sauces = Object.values(saucesSlice)
@@ -55,7 +55,7 @@ export default function Sauce () {
 
     const session = useSelector(state => state?.session)
     const userId = sessionUser?.id
-    const authenticated = sessionUser !== null
+    // const authenticated = sessionUser !== null
     
 
     // const reviews = sauce?.reviews
