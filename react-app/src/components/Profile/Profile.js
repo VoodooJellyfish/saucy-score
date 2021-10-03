@@ -25,7 +25,7 @@ export default function UserProfile () {
     const userReviews = reviews?.filter( review => review?.user_id === userId)
     const userSauces = sauces?.filter( sauce => sauce?.user_id === userId)
 
-    console.log( "USERINFO", userReviews, userSauces)
+    // console.log( "USERINFO", userReviews, userSauces)
 
     const [update, setUpdate] = useState(false)
 
