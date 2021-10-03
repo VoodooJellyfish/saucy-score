@@ -56,7 +56,7 @@ const EditSauceForm = ({ sauce, closeModal }) => {
             image_url: imageUrl,
             user_id: userId,
         };
-        console.log("PAYLOAD:", payload)
+        // console.log("PAYLOAD:", payload)
         await dispatch(thunk_editSauce(payload));
         setErrors([])
         closeModal()

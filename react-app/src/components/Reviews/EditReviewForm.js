@@ -60,7 +60,7 @@ const EditReviewForm = ({ sauce, review, closeEditReviewModal }) => {
             user_id: +userId,
             sauce_id: +sauce?.id
         };
-        console.log("PAYLOAD:", payload)
+        // console.log("PAYLOAD:", payload)
         await dispatch(thunk_editReview(payload));
         // await dispatch(thunk_getSauceReviews(payload?.sauce_id))
         setErrors([])

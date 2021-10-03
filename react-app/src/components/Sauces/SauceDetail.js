@@ -63,7 +63,7 @@ export default function Sauce () {
     const previousReview = sauceReviews?.find( review => review?.user_id === userId)
 
     const isReview = previousReview ? true:false
-    console.log("PREVIOUSREVIEW", previousReview)
+    // console.log("PREVIOUSREVIEW", previousReview)
 
     const [hasReviewed, setHasReviewed] = useState(isReview)
     const [score, setScore] = useState(0)
@@ -94,8 +94,8 @@ export default function Sauce () {
 
 
 
-    console.log("SCORE", findScore(sauceReviews))
-    console.log("SPICE", findSpice(sauceReviews))
+    // console.log("SCORE", findScore(sauceReviews))
+    // console.log("SPICE", findSpice(sauceReviews))
 
     
     let scoreArr = []
