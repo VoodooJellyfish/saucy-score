@@ -13,7 +13,7 @@ export default function Review({sauce, review, hasReviewed, setHasReviewed, prev
     const user = useSelector(state => state.session.user)
     const userId = user?.id
 
-    let reviews = sauce?.reviews
+    // let reviews = sauce?.reviews
     // const previousReview = reviews?.find(review => review?.user_id === +userId)
 
     const ownsReview = review?.user_id === userId ? true : false

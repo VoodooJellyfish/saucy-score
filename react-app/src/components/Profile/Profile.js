@@ -1,9 +1,9 @@
 import { useEffect } from "react"
 import { useSelector } from "react-redux"
 import { Link } from "react-router-dom"
-import { useDispatch } from "react-redux"
-import { thunk_getUserReviews } from "../../store/review"
-import { thunk_getUserSauces } from "../../store/sauce"
+// import { useDispatch } from "react-redux"
+// import { thunk_getUserReviews } from "../../store/review"
+// import { thunk_getUserSauces } from "../../store/sauce"
 import EditSauceFormModal from "../Sauces/EditSauceModal"
 import { DeleteSauceButton } from "../Sauces/DeleteSauceButton"
 import CreateSauceFormModal from "../Sauces/CreateSauceModal"
@@ -20,7 +20,7 @@ export default function UserProfile () {
     const sauces = Object.values(sauceSlice)
     const reviews = Object.values(reviewsSlice)
 
-    const dispatch = useDispatch()
+    // const dispatch = useDispatch()
 
     const userReviews = reviews?.filter( review => review?.user_id === userId)
     const userSauces = sauces?.filter( sauce => sauce?.user_id === userId)

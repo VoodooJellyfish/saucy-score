@@ -4,8 +4,8 @@ import { deleteReview } from "./review"
 const LOAD_SAUCES= "posts/LOAD_SAUCES"
 const UPDATE_SAUCE = 'users/UPDATE_SAUCE'
 const DELETE_SAUCE = 'posts/DELETE_SAUCE'
-const USER_SAUCES = 'posts/USER_SAUCES'
-const UPDATE_USER = 'post/UPDATE_USER'
+// const USER_SAUCES = 'posts/USER_SAUCES'
+// const UPDATE_USER = 'post/UPDATE_USER'
 
 
 

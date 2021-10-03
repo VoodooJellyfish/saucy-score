@@ -1,17 +1,17 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import "./Splash.css"
-import { useDispatch, useSelector } from 'react-redux';
-import { login } from "../../store/session";
+import {  useSelector } from 'react-redux';
+// import { login } from "../../store/session";
 
 function Splash() {
 
 
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
     useSelector(state => state.session.user)
 
-    let credential = 'demo@aa.io'
-    let password = 'password'
+    // let credential = 'demo@aa.io'
+    // let password = 'password'
     // let demoLogin = () => { return dispatch(login(credential, password)) }
 
 

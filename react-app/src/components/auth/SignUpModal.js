@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import { Modal } from "../../context/Modal";
 import SignUpForm from "./SignUpForm";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'

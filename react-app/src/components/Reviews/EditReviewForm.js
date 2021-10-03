@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
-import { thunk_getSauceReviews } from '../../store/review';
+// import { thunk_getSauceReviews } from '../../store/review';
 
-import { thunk_editReview, thunk_goDeleteReview } from '../../store/review';
+import { thunk_editReview} from '../../store/review';
 
 const EditReviewForm = ({ sauce, review, closeEditReviewModal }) => {
 
@@ -68,11 +68,11 @@ const EditReviewForm = ({ sauce, review, closeEditReviewModal }) => {
         history.push(`/sauces/${payload?.sauce_id}`)
     };
 
-    const handleDelete = async (e) => {
-        e.preventDefault()
-        await dispatch(thunk_goDeleteReview(review?.id))
-        history.push(`/sauces/${review?.id}`)
-    }
+    // const handleDelete = async (e) => {
+    //     e.preventDefault()
+    //     await dispatch(thunk_goDeleteReview(review?.id))
+    //     history.push(`/sauces/${review?.id}`)
+    // }
 
     return (
         <div>
