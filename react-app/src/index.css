@@ -93,3 +93,11 @@ body,
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+.pnf-container * {
+  color: white;
+}
+
+.pnf-redirect-link {
+  color: #ffd12d;
+}
