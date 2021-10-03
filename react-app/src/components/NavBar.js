@@ -30,8 +30,8 @@ const NavBar = ({ sessionUser, authenticated }) => {
                     </div>  
                 }
                 <div className='left leftli'>
-                        <NavLink className="nav-link" to='/sauces' exact={true} activeClassName='active'>
-                        Sauces
+                        <NavLink id="saucy-link" className="nav-link" to='/sauces' exact={true} activeClassName='active'>
+                        Sauces <FontAwesomeIcon icon={['fas', 'fire']}/>
                         </NavLink>
                 </div>
                 { !authenticated ?

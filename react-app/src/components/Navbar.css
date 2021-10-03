@@ -97,3 +97,7 @@
 #del {
   cursor: pointer;
 }
+
+#saucy-link {
+  font-weight: bold;
+}
