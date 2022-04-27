@@ -1,6 +1,6 @@
 # Saucy-Score
 
-Party-Lure is a website allowing you to discover and review new hot sauces. The site can be found at: https://saucy-score.herokuapp.com/
+Saucy Score is a website allowing you to discover and review new hot sauces. The site can be found at: https://saucy-score.herokuapp.com/
 
 ## Development
 * You can read more about the project using the wiki located at: https://github.com/VoodooJellyfish/saucy-score/wiki
